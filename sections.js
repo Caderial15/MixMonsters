@@ -13,7 +13,7 @@ class SectionManager {
         } else {
             buttons.forEach((btn, index) => {
                 btn.addEventListener('click', () => {
-                    this.loadExternalContent(index);
+                    this.loadExternalContent(index + 1); // Updated to use section1.html up to section5.html
                 });
             });
         }
