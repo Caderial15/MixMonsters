@@ -27,23 +27,25 @@
             overflow: hidden;
         }
 
-        #wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding-top: 0;
-        }
+/* Update the wrapper styles */
+#wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Changed from center to flex-start */
+    padding-top: 0; /* Ensures no top padding */
+}
 
-        #scaler {
-            position: absolute;
-            width: 1920px;
-            height: 1280px;
-            transform-origin: top center;
-            top: 0;
-        }
+/* Update the scaler styles */
+#scaler {
+    position: absolute;
+    width: 1920px;
+    height: 1280px;
+    transform-origin: top center; /* Changed from center to top center */
+    top: 0; /* Ensures it stays at the top */
+}
 
         .container {
             position: relative;
@@ -84,26 +86,6 @@
             gap: 20px;
             align-items: center;
             justify-content: center;
-        }
-
-        .success-message {
-            font-size: 3rem;
-            color: white;
-            text-align: center;
-            font-family: 'ARCO', sans-serif;
-            white-space: nowrap;
-            letter-spacing: 3px;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        .highlight-text {
-            color: #96F054;
-            cursor: pointer;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
 
         .email-input {
@@ -254,34 +236,34 @@
             to { transform: translateY(0); opacity: 1; }
         }
 
-        @media (orientation: portrait), 
-               (max-width: 800px), 
-               (max-height: 600px) {
-            .rotate-message {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: black;
-                color: white;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                z-index: 1000;
-                font-size: 1.5rem;
-                text-align: center;
-                padding: 2rem;
-            }
-        }
+@media (orientation: portrait), 
+       (max-width: 800px), 
+       (max-height: 600px) {
+    .rotate-message {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: black;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 2rem;
+    }
+}
 
-        @media (orientation: landscape) and 
-               (min-width: 801px) and 
-               (min-height: 601px) {
-            .rotate-message {
-                display: none;
-            }
-        }
+@media (orientation: landscape) and 
+       (min-width: 801px) and 
+       (min-height: 601px) {
+    .rotate-message {
+        display: none;
+    }
+}
     </style>
 </head>
 <body>
@@ -295,10 +277,9 @@
                     <h1 class="tagline tagline-soon">SOON...</h1>
                     <h2 class="tagline tagline-stay">STAY UPDATED FOR <span class="highlight">EARLY PERKS</span></h2>
 
-                    <form class="form-section" id="signup-form" action="https://club.us22.list-manage.com/subscribe/post-json" method="post">
+                    <form class="form-section" action="https://club.us22.list-manage.com/subscribe/post" method="post">
                         <input type="hidden" name="u" value="fb5cdd927f154a50cc430809f">
                         <input type="hidden" name="id" value="082cc50bbd">
-                        <input type="hidden" name="c" value="?">
                         <div>
                             <input type="email" class="email-input" name="EMAIL" required placeholder="Enter your email">
                             <button type="submit" class="submit-btn">SIGN UP</button>
@@ -348,94 +329,50 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Animation functionality
-            const buttons = document.querySelectorAll('.monster-btn');
-            const animations = ['slideFromLeft', 'slideFromBottom', 'slideFromTop', 'slideFromBottom', 'slideFromRight'];
-            const animationDuration = 500;
-            const staggerDelay = animationDuration / 2;
-            
+document.addEventListener('DOMContentLoaded', () => {
+    // Animation functionality
+    const buttons = document.querySelectorAll('.monster-btn');
+    const animations = ['slideFromLeft', 'slideFromBottom', 'slideFromTop', 'slideFromBottom', 'slideFromRight'];
+    const animationDuration = 500;
+    const staggerDelay = animationDuration / 2;
+    
+    setTimeout(() => {
+        buttons.forEach((btn, index) => {
             setTimeout(() => {
-                buttons.forEach((btn, index) => {
-                    setTimeout(() => {
-                        btn.style.animation = `${animations[index]} ${animationDuration}ms ease-out forwards`;
-                    }, index * staggerDelay);
-                });
-            }, 100);
-
-            // Scaling functionality
-            const scaler = document.querySelector('#scaler');
-            const contentContainer = document.querySelector('.content-container');
-            
-            function updateScale() {
-                const wrapperWidth = window.innerWidth;
-                const wrapperHeight = window.innerHeight;
-                const baseWidth = 1920;
-                const baseHeight = 1280;
-                
-                const scale = Math.min(
-                    wrapperWidth / baseWidth,
-                    wrapperHeight / baseHeight
-                );
-                
-                scaler.style.transform = `scale(${scale})`;
-                
-                // Dynamic content container scaling
-                const minScale = 0.7;
-                const maxScale = 0.95;
-                const inverseScreenScale = 1 - scale;
-                const contentScale = minScale + (inverseScreenScale * (maxScale - minScale));
-                
-                contentContainer.style.transform = `scale(${contentScale})`;
-            }
-            
-            window.addEventListener('resize', updateScale);
-            updateScale();
-
-            // Form handling
-            const form = document.getElementById('signup-form');
-            
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const email = form.querySelector('input[name="EMAIL"]').value;
-                const submitButton = form.querySelector('.submit-btn');
-                submitButton.disabled = true;
-                
-                // Modify the action URL for JSONP
-                const url = form.action.replace('/post?', '/post-json?') + 
-                           '&EMAIL=' + encodeURIComponent(email) + 
-                           '&c=callback';
-                
-                // Create script element for JSONP request
-                const script = document.createElement('script');
-                script.src = url;
-                document.body.appendChild(script);
-                
-                // Remove script after execution
-                script.onload = function() {
-                    document.body.removeChild(script);
-                };
-            });
-            
-           // Callback function for Mailchimp
-            window.callback = function(response) {
-                const formDiv = document.querySelector('.form-section');
-                
-                if (response.result === 'success') {
-                    // Replace form with success message
-                    const successDiv = document.createElement('div');
-                    successDiv.classList.add('success-message');
-                    successDiv.innerHTML = 'Thank you for Signing Up!<br><span class="highlight-text">Click any of the Monsters above to explore more!</span>';
-                    formDiv.parentNode.replaceChild(successDiv, formDiv);
-                } else {
-                    // Re-enable submit button and show error
-                    const submitButton = formDiv.querySelector('.submit-btn');
-                    submitButton.disabled = false;
-                    alert('There was an error with your submission. Please try again.');
-                }
-            };
+                btn.style.animation = `${animations[index]} ${animationDuration}ms ease-out forwards`;
+            }, index * staggerDelay);
         });
+    }, 100);
+
+    // Scaling functionality
+    const scaler = document.querySelector('#scaler');
+    const contentContainer = document.querySelector('.content-container');
+    
+    function updateScale() {
+        const wrapperWidth = window.innerWidth;
+        const wrapperHeight = window.innerHeight;
+        const baseWidth = 1920;
+        const baseHeight = 1280;
+        
+        const scale = Math.min(
+            wrapperWidth / baseWidth,
+            wrapperHeight / baseHeight
+        );
+        
+        scaler.style.transform = `scale(${scale})`;
+        
+        // Dynamic content container scaling
+        const minScale = 0.7;
+        const maxScale = 0.95;
+        const inverseScreenScale = 1 - scale;
+        const contentScale = minScale + (inverseScreenScale * (maxScale - minScale));
+        
+        contentContainer.style.transform = `scale(${contentScale})`;
+    }
+    
+    window.addEventListener('resize', updateScale);
+    updateScale();
+});
     </script>
 </body>
 </html>
