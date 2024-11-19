@@ -4,285 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mix Monsters</title>
-    <style>
-        @font-face {
-            font-family: 'ARCO';
-            src: url('fonts/ARCO.ttf') format('truetype');
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #000;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'ARCO', sans-serif;
-            overflow: hidden;
-        }
-
-        #wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding-top: 0;
-        }
-
-        #scaler {
-            position: absolute;
-            width: 1920px;
-            height: 1280px;
-            transform-origin: top center;
-            top: 0;
-        }
-
-        .container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-end;
-            padding-bottom: 5%;
-        }
-
-        .content-container {
-            position: relative;
-            width: 100%;
-            height: 3vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0vh;
-            z-index: 10;
-            margin-bottom: 10%;
-        }
-
-        .form-section {
-            position: relative;
-            width: 100%;
-            text-align: center;
-            margin: 2vh 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .form-section > div {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .success-message {
-            font-size: 3rem;
-            color: white;
-            text-align: center;
-            font-family: 'ARCO', sans-serif;
-            white-space: nowrap;
-            letter-spacing: 3px;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        .highlight-text {
-            color: #96F054;
-            cursor: pointer;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .email-input {
-            width: 600px;
-            height: 65px;
-            padding: 1rem;
-            border: 2px dashed white;
-            background: transparent;
-            color: white;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            margin: 0;
-        }
-
-        .submit-btn {
-            width: 200px;
-            height: 65px;
-            padding: 0 2rem;
-            background: #1D4A4D;
-            border: 3px solid #2A8B8F;
-            box-shadow: 0 0 0 3px #1D4A4D, 0 0 0 6px #2A8B8F;
-            border-radius: 10px;
-            color: white;
-            cursor: pointer;
-            font-size: 1.8rem;
-            font-family: 'ARCO', sans-serif;
-            transition: all 0.3s;
-            margin: 0;
-        }
-
-        .submit-btn:hover {
-            background: #FF4D8D;
-            border: 3px solid #FFB1CF;
-            box-shadow: 0 0 0 3px #FF4D8D, 0 0 0 6px #FFB1CF;
-        }
-        
-        .logo {
-            width: 400px;
-            margin: 2vh 0;
-        }
-
-        .tagline {
-            text-align: center;
-            font-family: 'ARCO', sans-serif;
-            white-space: nowrap;
-            letter-spacing: 3px;
-            color: white;
-        }
-
-        .tagline-soon {
-            font-size: 6rem;
-        }
-
-        .tagline-stay {
-            font-size: 3rem;
-        }
-
-        .tagline-join {
-            font-size: 2.5rem;
-        }
-
-        .tagline-url {
-            font-size: 3rem;
-        }
-
-        .highlight {
-            color: #96F054;
-        }
-
-        .monster-buttons {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            display: flex;
-            justify-content: stretch;
-            align-items: stretch;
-        }
-
-        .monster-col {
-            flex: 1;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .monster-btn {
-            width: 100%;
-            height: 100%;
-            border: none;
-            background: none;
-            cursor: pointer;
-            padding: 0;
-            margin: 0;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-        }
-
-        .monster-col:nth-child(1) .monster-btn { transform: translateX(-120%); }
-        .monster-col:nth-child(2) .monster-btn { transform: translateY(120%); }
-        .monster-col:nth-child(3) .monster-btn { transform: translateY(-120%); }
-        .monster-col:nth-child(4) .monster-btn { transform: translateY(120%); }
-        .monster-col:nth-child(5) .monster-btn { transform: translateX(120%); }
-
-        .monster-btn img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .monster-btn .hover-img {
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .monster-btn:hover .hover-img {
-            opacity: 1;
-        }
-
-        @keyframes slideFromLeft {
-            from { transform: translateX(-120%); opacity: 0; }
-            70% { transform: translateX(5%); opacity: 1; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        @keyframes slideFromRight {
-            from { transform: translateX(120%); opacity: 0; }
-            70% { transform: translateX(-5%); opacity: 1; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        @keyframes slideFromTop {
-            from { transform: translateY(-120%); opacity: 0; }
-            70% { transform: translateY(5%); opacity: 1; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @keyframes slideFromBottom {
-            from { transform: translateY(120%); opacity: 0; }
-            70% { transform: translateY(-5%); opacity: 1; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @media (orientation: portrait), 
-               (max-width: 800px), 
-               (max-height: 600px) {
-            .rotate-message {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: black;
-                color: white;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                z-index: 1000;
-                font-size: 1.5rem;
-                text-align: center;
-                padding: 2rem;
-            }
-        }
-
-        @media (orientation: landscape) and 
-               (min-width: 801px) and 
-               (min-height: 601px) {
-            .rotate-message {
-                display: none;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="rotate-message">
@@ -295,10 +17,9 @@
                     <h1 class="tagline tagline-soon">SOON...</h1>
                     <h2 class="tagline tagline-stay">STAY UPDATED FOR <span class="highlight">EARLY PERKS</span></h2>
 
-                    <form class="form-section" id="signup-form" action="https://club.us22.list-manage.com/subscribe/post-json" method="post">
+                    <form class="form-section" id="signup-form" action="https://club.us22.list-manage.com/subscribe/post" method="post">
                         <input type="hidden" name="u" value="fb5cdd927f154a50cc430809f">
                         <input type="hidden" name="id" value="082cc50bbd">
-                        <input type="hidden" name="c" value="?">
                         <div>
                             <input type="email" class="email-input" name="EMAIL" required placeholder="Enter your email">
                             <button type="submit" class="submit-btn">SIGN UP</button>
@@ -401,40 +122,27 @@
                 const email = form.querySelector('input[name="EMAIL"]').value;
                 const submitButton = form.querySelector('.submit-btn');
                 submitButton.disabled = true;
-                
-                // Modify the action URL for JSONP
-                const url = form.action.replace('/post?', '/post-json?') + 
-                           '&EMAIL=' + encodeURIComponent(email) + 
-                           '&c=callback';
-                
-                // Create script element for JSONP request
-                const script = document.createElement('script');
-                script.src = url;
-                document.body.appendChild(script);
-                
-                // Remove script after execution
-                script.onload = function() {
-                    document.body.removeChild(script);
-                };
-            });
-            
-           // Callback function for Mailchimp
-            window.callback = function(response) {
-                const formDiv = document.querySelector('.form-section');
-                
-                if (response.result === 'success') {
-                    // Replace form with success message
+
+                // Regular form submission
+                const formData = new FormData(form);
+                fetch(form.action.replace('-json', ''), {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: formData
+                })
+                .then(() => {
+                    // Show success message
+                    const formDiv = document.querySelector('.form-section');
                     const successDiv = document.createElement('div');
                     successDiv.classList.add('success-message');
                     successDiv.innerHTML = 'Thank you for Signing Up!<br><span class="highlight-text">Click any of the Monsters above to explore more!</span>';
                     formDiv.parentNode.replaceChild(successDiv, formDiv);
-                } else {
-                    // Re-enable submit button and show error
-                    const submitButton = formDiv.querySelector('.submit-btn');
+                })
+                .catch(() => {
                     submitButton.disabled = false;
                     alert('There was an error with your submission. Please try again.');
-                }
-            };
+                });
+            });
         });
     </script>
 </body>
