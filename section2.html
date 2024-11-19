@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Section 1 - Mix Monsters</title>
+    <style>
+        /* Ensure specific styling for overlay content */
+        .bg-layer, .multiply-layer, .character-layer {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-out;
+        }
+
+        .multiply-layer {
+            mix-blend-mode: multiply;
+        }
+
+        .character-layer {
+            width: 130%;
+            height: 130%;
+            clip-path: inset(0);
+            transition: transform 1s ease-out, opacity 1s ease-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="section1-container" class="section-content">
+        <div class="bg-layer" id="bg-layer" style="background-image: url('../images/BG_02.png');"></div>
+        <div class="multiply-layer" id="multiply-layer" style="background-image: url('../images/Multiply_2.png');"></div>
+        <div class="character-layer" id="character-layer" style="background-image: url('../images/MM_DarkModeSite_0003_BTN_Hover_2.png');"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Background and Multiply layer animation
+            const bgLayer = document.getElementById('bg-layer');
+            const multiplyLayer = document.getElementById('multiply-layer');
+            const characterLayer = document.getElementById('character-layer');
+
+            // Ensure background and multiply layers fade in smoothly
+            const fadeInAnimations = [
+                { opacity: 0, transform: 'scale(1.1)' },
+                { opacity: 1, transform: 'scale(1)' }
+            ];
+            const animationTiming = { duration: 2000, easing: 'ease-out' };
+
+            bgLayer.animate(fadeInAnimations, animationTiming);
+            multiplyLayer.animate(fadeInAnimations, animationTiming);
+
+            // Make background and multiply layer fully visible
+            bgLayer.style.opacity = '1';
+            multiplyLayer.style.opacity = '1';
+
+            // Character layer slide animation after delay
+            setTimeout(() => {
+                characterLayer.style.opacity = '1';
+                const slideDirection = -100;  // Adjust for specific entry point
+                characterLayer.style.transform = `translateX(${slideDirection}%)`;
+                characterLayer.animate([
+                    { transform: `translateX(${slideDirection}%)`, opacity: 0 },
+                    { transform: 'translateX(0)', opacity: 1 }
+                ], { duration: 1000, delay: 2000, easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)' });
+            }, 2500);
+        });
+    </script>
+</body>
+</html>
