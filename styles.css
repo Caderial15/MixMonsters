@@ -34,8 +34,10 @@ body {
     position: absolute;
     width: 1920px;
     height: 1280px;
-    transform-origin: top center;
-    top: 0;
+    transform-origin: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(calc(min(100vw / 1920, 100vh / 1280)));
 }
 
 .container {
@@ -311,22 +313,4 @@ body {
     from { transform: translateY(120%); opacity: 0; }
     70% { transform: translateY(-5%); opacity: 1; }
     to { transform: translateY(0); opacity: 1; }
-}
-
-@media only screen and (max-width: 800px) {
-    body {
-        overflow: auto;
-        zoom: reset;
-    }
-
-    #scaler {
-        width: 100vw;
-        height: auto;
-        transform: none;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: 0 auto;
-    }
 }
