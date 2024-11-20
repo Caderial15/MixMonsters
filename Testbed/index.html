@@ -47,6 +47,15 @@
     height: calc(min(100vw, 1920px) * (1080/1920));
     transform: translateX(-50%);
     min-width: 360px;
+}
+.Main_Wrapper2 {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: min(100vw, 1920px);
+    height: 100%;
+    transform: translateX(-50%);
+    min-width: 360px;
     box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.75);  /* Added drop shadow */
 }
 .Main_Wrapper::before {
@@ -319,6 +328,7 @@
     </script>
 </head>
 <body>
+    <div class="Main_Wrapper2">
     <div class="Main_Wrapper">
         <div class="Content_Wrapper">
             <div class="Row">
@@ -358,6 +368,7 @@
             </div>
         </div>
     </div>
+        </div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('signup-form');
