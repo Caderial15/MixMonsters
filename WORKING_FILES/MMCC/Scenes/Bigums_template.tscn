@@ -1,0 +1,1630 @@
+[gd_scene load_steps=151 format=3 uid="uid://ddyrmhdan3jfx"]
+
+[ext_resource type="Texture2D" uid="uid://c4wlxl15727ye" path="res://images/CharacterTemplates/Big_ums/arm_1/Arm_1_1.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://ckxkxjkbxggnq" path="res://images/CharacterTemplates/Big_ums/hand_2/Arm_2_Hand_3.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://c86f481hgrieg" path="res://images/CharacterTemplates/Big_ums/arm_1/Arm_1_3.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://pk641g1bkwa" path="res://images/CharacterTemplates/Big_ums/arm_2/Arm_2_1.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://tg7la47yc5kg" path="res://images/CharacterTemplates/Big_ums/arm_2/Arm_2_2.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dr2043vin75w6" path="res://images/CharacterTemplates/Big_ums/hand_2/Arm_2_Hand_2.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://cit38281yi4vi" path="res://images/CharacterTemplates/Big_ums/hand_1/Arm_1_Hand_1.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://c4ikpedscvc00" path="res://images/CharacterTemplates/Big_ums/hand_2/Arm_2_Hand_1.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://lw6mfs20i8yj" path="res://images/CharacterTemplates/Big_ums/hand_1/Arm_1_Hand_3.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://ydm76a1kpmo6" path="res://images/CharacterTemplates/Big_ums/tail/Tail_1.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://dp4b481s43bap" path="res://images/CharacterTemplates/Big_ums/arm_2/Arm_2_3.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://dpxjaga0gcllj" path="res://images/CharacterTemplates/Big_ums/hand_1/Arm_1_Hand_2.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://bvnu0gwvvgxu3" path="res://images/CharacterTemplates/Big_ums/arm_1/Arm_1_2.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://dyvwrcysxg45v" path="res://images/CharacterTemplates/Big_ums/toes_1/Leg_1_Toes_1.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://c3fjpulcf6rwr" path="res://images/CharacterTemplates/Big_ums/toes_1/Leg_1_Toes_2.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://cxny5l74qwvfc" path="res://images/CharacterTemplates/Big_ums/leg_1/Leg_1.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://m3w5ykjgfbmp" path="res://images/CharacterTemplates/Big_ums/toes_2/Leg_2_Toes_1.png" id="17"]
+[ext_resource type="Texture2D" uid="uid://6vhop5ixf8p4" path="res://images/CharacterTemplates/Big_ums/toes_2/Leg_2_Toes_3.png" id="18"]
+[ext_resource type="Texture2D" uid="uid://bjkkywux3frqq" path="res://images/CharacterTemplates/Big_ums/toes_1/Leg_1_Toes_3.png" id="19"]
+[ext_resource type="Texture2D" uid="uid://bnmea0f5mpg2d" path="res://images/CharacterTemplates/Big_ums/leg_2/Leg_2.png" id="20"]
+[ext_resource type="Texture2D" uid="uid://dunam2cdx8x6g" path="res://images/CharacterTemplates/Big_ums/toes_2/Leg_2_Toes_2.png" id="21"]
+[ext_resource type="Script" path="res://Scripts/MaskAndRecolorApplicationScript.gd" id="22"]
+[ext_resource type="Shader" uid="uid://crv2p2o6spy1i" path="res://Shaders/mask_recolor_shader.tres" id="23"]
+[ext_resource type="Texture2D" uid="uid://bqii5q8lp52tb" path="res://images/CharacterTemplates/Big_ums/body_patch/Body_Patch_2.png" id="24"]
+[ext_resource type="Texture2D" uid="uid://dpadqeuv6j52h" path="res://images/CharacterTemplates/Big_ums/body_patch/Body_Patch_3.png" id="25"]
+[ext_resource type="Texture2D" uid="uid://2583fqjv2vv4" path="res://images/CharacterTemplates/Big_ums/body_detail/Body_Detail_1.png" id="26"]
+[ext_resource type="Texture2D" uid="uid://dolmes7an7vxn" path="res://images/CharacterTemplates/Big_ums/body_patch/Body_Patch_1.png" id="27"]
+[ext_resource type="Texture2D" uid="uid://dyg0610ua3htm" path="res://images/CharacterTemplates/Big_ums/body_base/Body_Base.png" id="28"]
+[ext_resource type="Texture2D" uid="uid://c4u5qa4am5xor" path="res://images/CharacterTemplates/Big_ums/body_detail/Body_Detail_2.png" id="29"]
+[ext_resource type="Texture2D" uid="uid://ee551ij3dl4s" path="res://images/CharacterTemplates/Big_ums/body_detail/Body_Detail_3.png" id="30"]
+[ext_resource type="Texture2D" uid="uid://mjunms4i5mrx" path="res://images/CharacterTemplates/Big_ums/head_detail/Head_Detail_2.png" id="31"]
+[ext_resource type="Texture2D" uid="uid://2usuek7s7rkw" path="res://images/CharacterTemplates/Big_ums/head_base/Head_Base_2.png" id="32"]
+[ext_resource type="Texture2D" uid="uid://badllbor8as3n" path="res://images/CharacterTemplates/Big_ums/head_detail/Head_Detail_1.png" id="33"]
+[ext_resource type="Texture2D" uid="uid://tshpdfafb60r" path="res://images/CharacterTemplates/Big_ums/head_base/Head_Base_3.png" id="34"]
+[ext_resource type="Texture2D" uid="uid://btyk3gnx3bw8d" path="res://images/CharacterTemplates/Big_ums/head_base/Head_Base_1.png" id="35"]
+[ext_resource type="Texture2D" uid="uid://c2v4fdfujnp8a" path="res://images/CharacterTemplates/Big_ums/head_detail/Head_Detail_3.png" id="36"]
+[ext_resource type="Texture2D" uid="uid://bec5vbfc1wa3h" path="res://images/CharacterTemplates/Big_ums/mouth_back/Mouth_Back.png" id="37"]
+[ext_resource type="Texture2D" uid="uid://bskb78wvcqoun" path="res://images/CharacterTemplates/Big_ums/mouth_top_teeth/Mouth_Teeth_Top_2.png" id="38"]
+[ext_resource type="Texture2D" uid="uid://4leshtnrnwtl" path="res://images/CharacterTemplates/Big_ums/mouth_top_teeth/Mouth_Teeth_Top_3.png" id="39"]
+[ext_resource type="Texture2D" uid="uid://c3v20ag0xjonv" path="res://images/CharacterTemplates/Big_ums/mouth_bottom_teeth/Mouth_Teeth_Bottom_3.png" id="40"]
+[ext_resource type="Texture2D" uid="uid://b0847tamhnxr0" path="res://images/CharacterTemplates/Big_ums/mouth_tounge/Mouth_Tounge.png" id="41"]
+[ext_resource type="Texture2D" uid="uid://dwvraw661e2ei" path="res://images/CharacterTemplates/Big_ums/mouth_bottom_teeth/Mouth_Teeth_Bottom_1.png" id="42"]
+[ext_resource type="Texture2D" uid="uid://ttdid05ujwbt" path="res://images/CharacterTemplates/Big_ums/mouth_top_teeth/Mouth_Teeth_Top_1.png" id="43"]
+[ext_resource type="Texture2D" uid="uid://bgqd3puuhys2a" path="res://images/CharacterTemplates/Big_ums/mouth_bottom_teeth/Mouth_Teeth_Bottom_2.png" id="44"]
+[ext_resource type="Texture2D" uid="uid://btgqpx6n13hfl" path="res://images/CharacterTemplates/Big_ums/mouth_throat/Mouth_Throat.png" id="45"]
+[ext_resource type="Texture2D" uid="uid://bm684r7wg0j4q" path="res://images/CharacterTemplates/Big_ums/eyes/Eyes_Base_3.png" id="46"]
+[ext_resource type="Texture2D" uid="uid://cewagqvvjn8js" path="res://images/CharacterTemplates/Big_ums/eyes/Eyes_Base_1.png" id="47"]
+[ext_resource type="Texture2D" uid="uid://cq0e0tuyotgyt" path="res://images/CharacterTemplates/Big_ums/pupils/Pupils.png" id="48"]
+[ext_resource type="Texture2D" uid="uid://kk4urpb1efrm" path="res://images/CharacterTemplates/Big_ums/eyes/Eyes_Base_2.png" id="49"]
+[ext_resource type="Texture2D" uid="uid://deft4sm62rldx" path="res://images/CharacterTemplates/Big_ums/mouth_lips/Mouth_Lips.png" id="50"]
+[ext_resource type="Texture2D" uid="uid://coix4mj0dlmfv" path="res://images/UI/OptionsMenuBackground.png" id="51"]
+[ext_resource type="Texture2D" uid="uid://htp6cgu5bgcd" path="res://images/UI/CustomizationsMNU/BodyDetailOption.png" id="52"]
+[ext_resource type="Texture2D" uid="uid://dfdqkcskad710" path="res://images/UI/CustomizationsMNU/BodyPatchOptions.png" id="53"]
+[ext_resource type="Texture2D" uid="uid://c4baud5lai16d" path="res://images/UI/CustomizationsMNU/HeadOptions.png" id="54"]
+[ext_resource type="Texture2D" uid="uid://pf1160hnq73i" path="res://images/UI/CustomizationsMNU/EyeOptions.png" id="55"]
+[ext_resource type="Texture2D" uid="uid://bdp6kt8fo24p7" path="res://images/UI/CustomizationsMNU/TopTeethOptions.png" id="56"]
+[ext_resource type="Texture2D" uid="uid://cifd81kw8fihy" path="res://images/UI/SelectedCategoryBackgroud.png" id="57"]
+[ext_resource type="Texture2D" uid="uid://cwdxg17eibqi1" path="res://images/UI/CustomizationsMNU/ArmOptions.png" id="58"]
+[ext_resource type="Texture2D" uid="uid://cgqil4g2wf67t" path="res://images/UI/CustomizationsMNU/ToesOptions.png" id="59"]
+[ext_resource type="Texture2D" uid="uid://b62eu3b61n8tj" path="res://images/UI/CustomizationsMNU/HandsOptions.png" id="60"]
+[ext_resource type="Texture2D" uid="uid://eyx11e4rlbcp" path="res://images/UI/CustomizationsMNU/BtmTeethOptions.png" id="61"]
+[ext_resource type="Texture2D" uid="uid://c7xc0u4k64h1y" path="res://images/UI/CustomizationsMNU/HeadDetailOptions.png" id="62"]
+[ext_resource type="Texture2D" uid="uid://c35qhiy6avhq2" path="res://images/UI/CustomizationsMNU/Arrow_R.png" id="63"]
+[ext_resource type="Texture2D" uid="uid://ciqjpw0rba7aj" path="res://images/UI/CustomizationsMNU/Arrow_L.png" id="64"]
+[ext_resource type="Texture2D" uid="uid://bi6t1guh1adei" path="res://images/UI/OptionsSubMNUs/HeadOption2.png" id="65"]
+[ext_resource type="Texture2D" uid="uid://yt0crv6scbl8" path="res://images/UI/OptionsSubMNUs/HeadOption3.png" id="66"]
+[ext_resource type="Texture2D" uid="uid://cuvf3om3d2v2k" path="res://images/UI/OptionsSubMNUs/HeadOption1.png" id="67"]
+[ext_resource type="Texture2D" uid="uid://dv2kkadlayj3d" path="res://images/UI/OptionsSubMNUs/BtmTeethOption3.png" id="68"]
+[ext_resource type="Texture2D" uid="uid://bw8ro5glarobe" path="res://images/UI/OptionsSubMNUs/HeadDetailOption3.png" id="69"]
+[ext_resource type="Texture2D" uid="uid://fxmnhkvhtiqd" path="res://images/UI/OptionsSubMNUs/BtmTeethOption1.png" id="70"]
+[ext_resource type="Texture2D" uid="uid://d0rc2p7xp4q8g" path="res://images/UI/OptionsSubMNUs/BodyPatchOption1.png" id="71"]
+[ext_resource type="Texture2D" uid="uid://c5q2s186rgtdr" path="res://images/UI/OptionsSubMNUs/EyeOption1.png" id="72"]
+[ext_resource type="Texture2D" uid="uid://dyxvykck8pew2" path="res://images/UI/OptionsSubMNUs/HeadDetailOption2.png" id="73"]
+[ext_resource type="Texture2D" uid="uid://b3l6slamq0r05" path="res://images/UI/OptionsSubMNUs/EyeOption3.png" id="74"]
+[ext_resource type="Texture2D" uid="uid://brbfw1ub3hwg7" path="res://images/UI/OptionsSubMNUs/TopTeethOption1.png" id="75"]
+[ext_resource type="Texture2D" uid="uid://40whdv1u2ikr" path="res://images/UI/OptionsSubMNUs/TopTeethOption3.png" id="76"]
+[ext_resource type="Texture2D" uid="uid://c237fkw71bly8" path="res://images/UI/OptionsSubMNUs/BodyPatchOption2.png" id="77"]
+[ext_resource type="Texture2D" uid="uid://c7hgkme5girg3" path="res://images/UI/OptionsSubMNUs/BodyPatchOption3.png" id="78"]
+[ext_resource type="Texture2D" uid="uid://cl4rt3d4xlyfu" path="res://images/UI/OptionsSubMNUs/BodyOption2.png" id="79"]
+[ext_resource type="Texture2D" uid="uid://dowlvjuecoosn" path="res://images/UI/OptionsSubMNUs/EyeOption2.png" id="80"]
+[ext_resource type="Texture2D" uid="uid://dk4kei40e0axb" path="res://images/UI/OptionsSubMNUs/HeadDetailOption1.png" id="81"]
+[ext_resource type="Texture2D" uid="uid://c1iuw6rp07qpe" path="res://images/UI/OptionsSubMNUs/BtmTeethOption2.png" id="82"]
+[ext_resource type="Texture2D" uid="uid://nu1x4jmkpial" path="res://images/UI/OptionsSubMNUs/BodyOption3.png" id="83"]
+[ext_resource type="Texture2D" uid="uid://bbwta0ohttgcd" path="res://images/UI/OptionsSubMNUs/ArmOption1.png" id="84"]
+[ext_resource type="Texture2D" uid="uid://dcin254jybpx3" path="res://images/UI/OptionsSubMNUs/ArmOption2.png" id="85"]
+[ext_resource type="Texture2D" uid="uid://0rc4k20t4sl8" path="res://images/UI/OptionsSubMNUs/ArmOption3.png" id="86"]
+[ext_resource type="Texture2D" uid="uid://cxn1kjq0jyd1i" path="res://images/UI/OptionsSubMNUs/TopTeethOption2.png" id="87"]
+[ext_resource type="Texture2D" uid="uid://bhl7tgxwxr80p" path="res://images/UI/OptionsSubMNUs/BodyOption1.png" id="88"]
+[ext_resource type="Texture2D" uid="uid://cxsp57eddxq4a" path="res://images/UI/OptionsSubMNUs/ToesOption1.png" id="89"]
+[ext_resource type="Texture2D" uid="uid://doledtbtrm0ax" path="res://images/UI/OptionsSubMNUs/ToesOption2.png" id="90"]
+[ext_resource type="Texture2D" uid="uid://cvbaiucx0aq67" path="res://images/UI/OptionsSubMNUs/ToesOption3.png" id="91"]
+[ext_resource type="Texture2D" uid="uid://d30ieon4lf0nb" path="res://images/UI/OptionsSubMNUs/HandOption1.png" id="92"]
+[ext_resource type="Texture2D" uid="uid://x3fvcxhtdost" path="res://images/UI/OptionsSubMNUs/HandOption2.png" id="93"]
+[ext_resource type="Texture2D" uid="uid://b44i6ob24aihw" path="res://images/UI/OptionsSubMNUs/HandOption3.png" id="94"]
+[ext_resource type="Script" path="res://Scripts/CustomizationMNU_Controller.gd" id="95"]
+[ext_resource type="Texture2D" uid="uid://fxr5plslto8x" path="res://images/UI/ColorSelectMNU/Color_Swatch_1.png" id="96"]
+[ext_resource type="Texture2D" uid="uid://b5rk4580slft2" path="res://images/UI/ColorSelectMNU/Color_Swatch_3.png" id="97"]
+[ext_resource type="Texture2D" uid="uid://dy7up4h8nkdc8" path="res://images/UI/ColorSelectMNU/ColorSwatch_Toggle_BTN_1.png" id="98"]
+[ext_resource type="Texture2D" uid="uid://cd5dj7fqxcf4f" path="res://images/UI/ColorSelectMNU/Color_Swatch_2.png" id="99"]
+[ext_resource type="Texture2D" uid="uid://cxkqnhn4htu8d" path="res://images/UI/ColorSelectMNU/Color_Swatch_4.png" id="100"]
+[ext_resource type="Texture2D" uid="uid://bhfw65denmgc2" path="res://images/UI/ColorSelectMNU/Slot_1.png" id="101"]
+[ext_resource type="Script" path="res://Scripts/ColorSwatchesControl.gd" id="102"]
+[ext_resource type="Texture2D" uid="uid://bsucd2o1bcst8" path="res://images/UI/SaveYourMonsterBTN.png" id="103"]
+[ext_resource type="Texture2D" uid="uid://cvkc3ravjwowy" path="res://images/UI/SaveYourMonsterHoverBTN.png" id="104"]
+[ext_resource type="Texture2D" uid="uid://dqx2vp3c2d6vj" path="res://images/UI/SaveYourMonsterPressedBTN.png" id="105"]
+
+[sub_resource type="ShaderMaterial" id="67"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.14902, 0.290196, 0.376471, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="89"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.192157, 0.392157, 0.466667, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="90"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.192157, 0.392157, 0.466667, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="91"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.192157, 0.392157, 0.466667, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="92"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="93"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="94"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="95"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.192157, 0.392157, 0.466667, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="96"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.192157, 0.392157, 0.466667, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="97"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.192157, 0.392157, 0.466667, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="98"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="99"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="100"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="101"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.14902, 0.290196, 0.376471, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="102"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.14902, 0.290196, 0.376471, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="69"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("16")
+
+[sub_resource type="ShaderMaterial" id="70"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("16")
+
+[sub_resource type="ShaderMaterial" id="71"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("16")
+
+[sub_resource type="ShaderMaterial" id="72"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("20")
+
+[sub_resource type="ShaderMaterial" id="73"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("20")
+
+[sub_resource type="ShaderMaterial" id="74"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("20")
+
+[sub_resource type="ShaderMaterial" id="109"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.14902, 0.290196, 0.376471, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="75"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("28")
+
+[sub_resource type="ShaderMaterial" id="76"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("28")
+
+[sub_resource type="ShaderMaterial" id="77"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("28")
+
+[sub_resource type="ShaderMaterial" id="78"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("28")
+
+[sub_resource type="ShaderMaterial" id="79"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("28")
+
+[sub_resource type="ShaderMaterial" id="80"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("28")
+
+[sub_resource type="ShaderMaterial" id="103"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.14902, 0.290196, 0.376471, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="104"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.14902, 0.290196, 0.376471, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="105"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.14902, 0.290196, 0.376471, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="106"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="107"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="108"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="ShaderMaterial" id="81"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(1, 1, 1, 0)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("37")
+
+[sub_resource type="ShaderMaterial" id="82"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(1, 1, 1, 0)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("37")
+
+[sub_resource type="ShaderMaterial" id="83"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(1, 1, 1, 0)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("37")
+
+[sub_resource type="ShaderMaterial" id="84"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(1, 1, 1, 0)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("37")
+
+[sub_resource type="ShaderMaterial" id="85"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(1, 1, 1, 0)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("37")
+
+[sub_resource type="ShaderMaterial" id="86"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(1, 1, 1, 0)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("37")
+
+[sub_resource type="ShaderMaterial" id="87"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(1, 1, 1, 0)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("37")
+
+[sub_resource type="ShaderMaterial" id="88"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(1, 1, 1, 0)
+shader_parameter/use_mask = true
+shader_parameter/flash_amount = 0.0
+shader_parameter/mask_texture = ExtResource("37")
+
+[sub_resource type="ShaderMaterial" id="110"]
+shader = ExtResource("23")
+shader_parameter/recolor = Color(0.52549, 0.709804, 0.788235, 1)
+shader_parameter/use_mask = false
+shader_parameter/flash_amount = 0.0
+
+[sub_resource type="Animation" id="45"]
+resource_name = "Recolor"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arm_1_Control/Switch_Arm_1/Arm_1_3:material:shader_parameter/recolor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.192157, 0.392157, 0.466667, 1), Color(0.533333, 0.537255, 0.8, 1), Color(0.572549, 0.776471, 0.87451, 1), Color(0.819608, 0.572549, 0.678431, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Arm_1_Control/Switch_Arm_1/Arm_1_2:material:shader_parameter/recolor")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.192157, 0.392157, 0.466667, 1), Color(0.533333, 0.537255, 0.8, 1), Color(0.572549, 0.776471, 0.87451, 1), Color(0.819608, 0.572549, 0.678431, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Arm_1_Control/Switch_Arm_1/Arm_1_1:material:shader_parameter/recolor")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.192157, 0.392157, 0.466667, 1), Color(0.533333, 0.537255, 0.8, 1), Color(0.572549, 0.776471, 0.87451, 1), Color(0.819608, 0.572549, 0.678431, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Arm_2_Control/Switch_Arm_2/Arm_2_3:material:shader_parameter/recolor")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.192157, 0.392157, 0.466667, 1), Color(0.533333, 0.537255, 0.8, 1), Color(0.572549, 0.776471, 0.87451, 1), Color(0.819608, 0.572549, 0.678431, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Arm_2_Control/Switch_Arm_2/Arm_2_2:material:shader_parameter/recolor")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.192157, 0.392157, 0.466667, 1), Color(0.533333, 0.537255, 0.8, 1), Color(0.572549, 0.776471, 0.87451, 1), Color(0.819608, 0.572549, 0.678431, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Arm_2_Control/Switch_Arm_2/Arm_2_1:material:shader_parameter/recolor")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.192157, 0.392157, 0.466667, 1), Color(0.533333, 0.537255, 0.8, 1), Color(0.572549, 0.776471, 0.87451, 1), Color(0.819608, 0.572549, 0.678431, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TAIL/Tail:material:shader_parameter/recolor")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.14902, 0.290196, 0.376471, 1), Color(0.407843, 0.411765, 0.705882, 1), Color(0.4, 0.619608, 0.72549, 1), Color(0.705882, 0.435294, 0.54902, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("LEG_1/Leg_1:material:shader_parameter/recolor")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.14902, 0.290196, 0.376471, 1), Color(0.407843, 0.411765, 0.705882, 1), Color(0.4, 0.619608, 0.72549, 1), Color(0.705882, 0.435294, 0.54902, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("LEG_2/Leg_2:material:shader_parameter/recolor")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.14902, 0.290196, 0.376471, 1), Color(0.407843, 0.411765, 0.705882, 1), Color(0.4, 0.619608, 0.72549, 1), Color(0.705882, 0.435294, 0.54902, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BODY/Body_Base:material:shader_parameter/recolor")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.14902, 0.290196, 0.376471, 1), Color(0.407843, 0.411765, 0.705882, 1), Color(0.4, 0.619608, 0.72549, 1), Color(0.705882, 0.435294, 0.54902, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Switch_Head_Base/Head_Base_3:material:shader_parameter/recolor")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.14902, 0.290196, 0.376471, 1), Color(0.407843, 0.411765, 0.705882, 1), Color(0.4, 0.619608, 0.72549, 1), Color(0.705882, 0.435294, 0.54902, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Switch_Head_Base/Head_Base_2:material:shader_parameter/recolor")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.14902, 0.290196, 0.376471, 1), Color(0.407843, 0.411765, 0.705882, 1), Color(0.4, 0.619608, 0.72549, 1), Color(0.705882, 0.435294, 0.54902, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Switch_Head_Base/Head_Base_1:material:shader_parameter/recolor")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.14902, 0.290196, 0.376471, 1), Color(0.407843, 0.411765, 0.705882, 1), Color(0.4, 0.619608, 0.72549, 1), Color(0.705882, 0.435294, 0.54902, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Arm_1_Control/Switch_Arm_1_Hand/Arm_1_Hand_3:material:shader_parameter/recolor")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Arm_1_Control/Switch_Arm_1_Hand/Arm_1_Hand_2:material:shader_parameter/recolor")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Arm_1_Control/Switch_Arm_1_Hand/Arm_1_Hand_1:material:shader_parameter/recolor")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Arm_2_Control/Switch_Arm_2_Hand/Arm_2_Hand_3:material:shader_parameter/recolor")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Arm_2_Control/Switch_Arm_2_Hand/Arm_2_Hand_2:material:shader_parameter/recolor")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Arm_2_Control/Switch_Arm_2_Hand/Arm_2_Hand_1:material:shader_parameter/recolor")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Switch_Leg_1_Toes/Leg_1_Toes_3:material:shader_parameter/recolor")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Switch_Leg_1_Toes/Leg_1_Toes_2:material:shader_parameter/recolor")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Switch_Leg_1_Toes/Leg_1_Toes_1:material:shader_parameter/recolor")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Switch_Leg_2_Toes/Leg_2_Toes_3:material:shader_parameter/recolor")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Switch_Leg_2_Toes/Leg_2_Toes_2:material:shader_parameter/recolor")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Switch_Leg_2_Toes/Leg_2_Toes_1:material:shader_parameter/recolor")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Switch_Body_Patch/Body_Patch_3:material:shader_parameter/recolor")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Switch_Body_Patch/Body_Patch_2:material:shader_parameter/recolor")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Switch_Body_Patch/Body_Patch_1:material:shader_parameter/recolor")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Switch_Body_Detail/Body_Detail_3:material:shader_parameter/recolor")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Switch_Body_Detail/Body_Detail_2:material:shader_parameter/recolor")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("Switch_Body_Detail/Body_Detail_1:material:shader_parameter/recolor")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("Switch_Head_Detail/Head_Detail_3:material:shader_parameter/recolor")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("Switch_Head_Detail/Head_Detail_2:material:shader_parameter/recolor")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("Switch_Head_Detail/Head_Detail_1:material:shader_parameter/recolor")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("LIPS/Mouth_Lips:material:shader_parameter/recolor")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.52549, 0.709804, 0.788235, 1), Color(0.898039, 0.611765, 0.8, 1), Color(0.443137, 0.419608, 0.596078, 1), Color(0.811765, 0.811765, 0.576471, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wecnh"]
+_data = {
+"Recolor": SubResource("45")
+}
+
+[node name="MASTER" type="Node2D"]
+
+[node name="CHARACTER_Controller" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -111.0
+offset_top = -99.0
+offset_right = 1169.0
+offset_bottom = 621.0
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(465, 400)
+
+[node name="TAIL" type="Node2D" parent="CHARACTER_Controller"]
+script = ExtResource("22")
+use_mask = false
+
+[node name="Tail" type="Sprite2D" parent="CHARACTER_Controller/TAIL"]
+material = SubResource("67")
+position = Vector2(-0.333333, -2.66667)
+scale = Vector2(1, 0.993163)
+texture = ExtResource("10")
+centered = false
+
+[node name="Arm_1_Control" type="Control" parent="CHARACTER_Controller"]
+anchors_preset = 0
+offset_left = 353.333
+offset_top = 390.667
+offset_right = 393.333
+offset_bottom = 430.667
+rotation = -76.6281
+scale = Vector2(7.04611, 2.3517)
+pivot_offset = Vector2(40, 20)
+
+[node name="Switch_Arm_1" type="Node2D" parent="CHARACTER_Controller/Arm_1_Control"]
+position = Vector2(-17.1474, -173.335)
+scale = Vector2(0.141922, 0.425224)
+script = ExtResource("22")
+use_mask = false
+
+[node name="Arm_1_3" type="Sprite2D" parent="CHARACTER_Controller/Arm_1_Control/Switch_Arm_1"]
+material = SubResource("89")
+texture = ExtResource("3")
+centered = false
+
+[node name="Arm_1_2" type="Sprite2D" parent="CHARACTER_Controller/Arm_1_Control/Switch_Arm_1"]
+material = SubResource("90")
+texture = ExtResource("13")
+centered = false
+
+[node name="Arm_1_1" type="Sprite2D" parent="CHARACTER_Controller/Arm_1_Control/Switch_Arm_1"]
+material = SubResource("91")
+texture = ExtResource("1")
+centered = false
+
+[node name="Switch_Arm_1_Hand" type="Node2D" parent="CHARACTER_Controller/Arm_1_Control"]
+position = Vector2(-17.1474, -173.335)
+scale = Vector2(0.141922, 0.425224)
+script = ExtResource("22")
+use_mask = false
+
+[node name="Arm_1_Hand_3" type="Sprite2D" parent="CHARACTER_Controller/Arm_1_Control/Switch_Arm_1_Hand"]
+material = SubResource("92")
+position = Vector2(-1.13098, 0.780945)
+texture = ExtResource("9")
+centered = false
+
+[node name="Arm_1_Hand_2" type="Sprite2D" parent="CHARACTER_Controller/Arm_1_Control/Switch_Arm_1_Hand"]
+material = SubResource("93")
+position = Vector2(-1.13098, 0.780945)
+texture = ExtResource("12")
+centered = false
+
+[node name="Arm_1_Hand_1" type="Sprite2D" parent="CHARACTER_Controller/Arm_1_Control/Switch_Arm_1_Hand"]
+material = SubResource("94")
+position = Vector2(-1.13098, 0.780945)
+texture = ExtResource("7")
+centered = false
+
+[node name="Arm_2_Control" type="Control" parent="CHARACTER_Controller"]
+anchors_preset = 0
+offset_left = 541.0
+offset_top = 386.667
+offset_right = 581.0
+offset_bottom = 426.667
+rotation = 70.3751
+scale = Vector2(7.04611, 2.3517)
+pivot_offset = Vector2(0, 20)
+
+[node name="Switch_Arm_2" type="Node2D" parent="CHARACTER_Controller/Arm_2_Control"]
+position = Vector2(-74.1781, -173.335)
+scale = Vector2(0.141922, 0.425224)
+script = ExtResource("22")
+use_mask = false
+
+[node name="Arm_2_3" type="Sprite2D" parent="CHARACTER_Controller/Arm_2_Control/Switch_Arm_2"]
+material = SubResource("95")
+texture = ExtResource("11")
+centered = false
+
+[node name="Arm_2_2" type="Sprite2D" parent="CHARACTER_Controller/Arm_2_Control/Switch_Arm_2"]
+material = SubResource("96")
+texture = ExtResource("5")
+centered = false
+
+[node name="Arm_2_1" type="Sprite2D" parent="CHARACTER_Controller/Arm_2_Control/Switch_Arm_2"]
+material = SubResource("97")
+texture = ExtResource("4")
+centered = false
+
+[node name="Switch_Arm_2_Hand" type="Node2D" parent="CHARACTER_Controller/Arm_2_Control"]
+position = Vector2(-74.1781, -173.335)
+scale = Vector2(0.141922, 0.425224)
+script = ExtResource("22")
+use_mask = false
+
+[node name="Arm_2_Hand_3" type="Sprite2D" parent="CHARACTER_Controller/Arm_2_Control/Switch_Arm_2_Hand"]
+material = SubResource("98")
+position = Vector2(1.37433, -0.00854492)
+texture = ExtResource("2")
+centered = false
+
+[node name="Arm_2_Hand_2" type="Sprite2D" parent="CHARACTER_Controller/Arm_2_Control/Switch_Arm_2_Hand"]
+material = SubResource("99")
+position = Vector2(1.37433, -0.00854492)
+texture = ExtResource("6")
+centered = false
+
+[node name="Arm_2_Hand_1" type="Sprite2D" parent="CHARACTER_Controller/Arm_2_Control/Switch_Arm_2_Hand"]
+material = SubResource("100")
+position = Vector2(1.37433, -0.00854492)
+texture = ExtResource("8")
+centered = false
+
+[node name="LEG_1" type="Node2D" parent="CHARACTER_Controller"]
+script = ExtResource("22")
+use_mask = false
+
+[node name="Leg_1" type="Sprite2D" parent="CHARACTER_Controller/LEG_1"]
+material = SubResource("101")
+texture = ExtResource("16")
+centered = false
+
+[node name="LEG_2" type="Node2D" parent="CHARACTER_Controller"]
+script = ExtResource("22")
+use_mask = false
+
+[node name="Leg_2" type="Sprite2D" parent="CHARACTER_Controller/LEG_2"]
+material = SubResource("102")
+texture = ExtResource("20")
+centered = false
+
+[node name="Switch_Leg_1_Toes" type="Node2D" parent="CHARACTER_Controller"]
+script = ExtResource("22")
+mask_texture = ExtResource("16")
+
+[node name="Leg_1_Toes_3" type="Sprite2D" parent="CHARACTER_Controller/Switch_Leg_1_Toes"]
+material = SubResource("69")
+position = Vector2(0.443573, 1.30078)
+texture = ExtResource("19")
+centered = false
+
+[node name="Leg_1_Toes_2" type="Sprite2D" parent="CHARACTER_Controller/Switch_Leg_1_Toes"]
+material = SubResource("70")
+position = Vector2(0.443573, 1.30078)
+texture = ExtResource("15")
+centered = false
+
+[node name="Leg_1_Toes_1" type="Sprite2D" parent="CHARACTER_Controller/Switch_Leg_1_Toes"]
+material = SubResource("71")
+position = Vector2(0.443573, 1.30078)
+texture = ExtResource("14")
+centered = false
+
+[node name="Switch_Leg_2_Toes" type="Node2D" parent="CHARACTER_Controller"]
+script = ExtResource("22")
+mask_texture = ExtResource("20")
+
+[node name="Leg_2_Toes_3" type="Sprite2D" parent="CHARACTER_Controller/Switch_Leg_2_Toes"]
+material = SubResource("72")
+position = Vector2(0.443573, 1.30078)
+texture = ExtResource("18")
+centered = false
+
+[node name="Leg_2_Toes_2" type="Sprite2D" parent="CHARACTER_Controller/Switch_Leg_2_Toes"]
+material = SubResource("73")
+position = Vector2(0.443573, 1.30078)
+texture = ExtResource("21")
+centered = false
+
+[node name="Leg_2_Toes_1" type="Sprite2D" parent="CHARACTER_Controller/Switch_Leg_2_Toes"]
+material = SubResource("74")
+position = Vector2(0.443573, 1.30078)
+texture = ExtResource("17")
+centered = false
+
+[node name="BODY" type="Node2D" parent="CHARACTER_Controller"]
+script = ExtResource("22")
+use_mask = false
+
+[node name="Body_Base" type="Sprite2D" parent="CHARACTER_Controller/BODY"]
+material = SubResource("109")
+texture = ExtResource("28")
+centered = false
+
+[node name="Switch_Body_Patch" type="Node2D" parent="CHARACTER_Controller"]
+script = ExtResource("22")
+mask_texture = ExtResource("28")
+
+[node name="Body_Patch_3" type="Sprite2D" parent="CHARACTER_Controller/Switch_Body_Patch"]
+material = SubResource("75")
+position = Vector2(0.443573, 1.30078)
+texture = ExtResource("25")
+centered = false
+
+[node name="Body_Patch_2" type="Sprite2D" parent="CHARACTER_Controller/Switch_Body_Patch"]
+material = SubResource("76")
+position = Vector2(0.443573, 1.30078)
+texture = ExtResource("24")
+centered = false
+
+[node name="Body_Patch_1" type="Sprite2D" parent="CHARACTER_Controller/Switch_Body_Patch"]
+material = SubResource("77")
+position = Vector2(0.443573, 1.30078)
+texture = ExtResource("27")
+centered = false
+
+[node name="Switch_Body_Detail" type="Node2D" parent="CHARACTER_Controller"]
+script = ExtResource("22")
+mask_texture = ExtResource("28")
+
+[node name="Body_Detail_3" type="Sprite2D" parent="CHARACTER_Controller/Switch_Body_Detail"]
+material = SubResource("78")
+position = Vector2(0.443573, 1.30078)
+texture = ExtResource("30")
+centered = false
+
+[node name="Body_Detail_2" type="Sprite2D" parent="CHARACTER_Controller/Switch_Body_Detail"]
+material = SubResource("79")
+position = Vector2(0.443573, 1.30078)
+texture = ExtResource("29")
+centered = false
+
+[node name="Body_Detail_1" type="Sprite2D" parent="CHARACTER_Controller/Switch_Body_Detail"]
+material = SubResource("80")
+position = Vector2(0.443573, 1.30078)
+texture = ExtResource("26")
+centered = false
+
+[node name="Switch_Head_Base" type="Node2D" parent="CHARACTER_Controller"]
+script = ExtResource("22")
+use_mask = false
+
+[node name="Head_Base_3" type="Sprite2D" parent="CHARACTER_Controller/Switch_Head_Base"]
+material = SubResource("103")
+texture = ExtResource("34")
+centered = false
+
+[node name="Head_Base_2" type="Sprite2D" parent="CHARACTER_Controller/Switch_Head_Base"]
+material = SubResource("104")
+texture = ExtResource("32")
+centered = false
+
+[node name="Head_Base_1" type="Sprite2D" parent="CHARACTER_Controller/Switch_Head_Base"]
+material = SubResource("105")
+texture = ExtResource("35")
+centered = false
+
+[node name="Switch_Head_Detail" type="Node2D" parent="CHARACTER_Controller"]
+script = ExtResource("22")
+use_mask = false
+
+[node name="Head_Detail_3" type="Sprite2D" parent="CHARACTER_Controller/Switch_Head_Detail"]
+material = SubResource("106")
+position = Vector2(0.443573, 1.30078)
+texture = ExtResource("36")
+centered = false
+
+[node name="Head_Detail_2" type="Sprite2D" parent="CHARACTER_Controller/Switch_Head_Detail"]
+material = SubResource("107")
+position = Vector2(0.443573, 1.30078)
+texture = ExtResource("31")
+centered = false
+
+[node name="Head_Detail_1" type="Sprite2D" parent="CHARACTER_Controller/Switch_Head_Detail"]
+material = SubResource("108")
+position = Vector2(0.443573, 1.30078)
+texture = ExtResource("33")
+centered = false
+
+[node name="MOUTH_BACK" type="Node2D" parent="CHARACTER_Controller"]
+
+[node name="Mouth_Back" type="Sprite2D" parent="CHARACTER_Controller/MOUTH_BACK"]
+texture = ExtResource("37")
+centered = false
+
+[node name="MOUTH_THROAT" type="Node2D" parent="CHARACTER_Controller"]
+script = ExtResource("22")
+mask_texture = ExtResource("37")
+
+[node name="Mouth_Throat" type="Sprite2D" parent="CHARACTER_Controller/MOUTH_THROAT"]
+material = SubResource("81")
+texture = ExtResource("45")
+centered = false
+
+[node name="MOUTH_TONGUE" type="Node2D" parent="CHARACTER_Controller"]
+script = ExtResource("22")
+mask_texture = ExtResource("37")
+
+[node name="Mouth_Tongue" type="Sprite2D" parent="CHARACTER_Controller/MOUTH_TONGUE"]
+material = SubResource("82")
+texture = ExtResource("41")
+centered = false
+
+[node name="Switch_Mouth_Teeth_Top" type="Node2D" parent="CHARACTER_Controller"]
+script = ExtResource("22")
+mask_texture = ExtResource("37")
+
+[node name="Mouth_Teeth_Top_3" type="Sprite2D" parent="CHARACTER_Controller/Switch_Mouth_Teeth_Top"]
+material = SubResource("83")
+texture = ExtResource("39")
+centered = false
+
+[node name="Mouth_Teeth_Top_2" type="Sprite2D" parent="CHARACTER_Controller/Switch_Mouth_Teeth_Top"]
+material = SubResource("84")
+texture = ExtResource("38")
+centered = false
+
+[node name="Mouth_Teeth_Top_1" type="Sprite2D" parent="CHARACTER_Controller/Switch_Mouth_Teeth_Top"]
+material = SubResource("85")
+texture = ExtResource("43")
+centered = false
+
+[node name="Switch_Mouth_Teeth_Bottom" type="Node2D" parent="CHARACTER_Controller"]
+script = ExtResource("22")
+mask_texture = ExtResource("37")
+
+[node name="Mouth_Teeth_Bottom_3" type="Sprite2D" parent="CHARACTER_Controller/Switch_Mouth_Teeth_Bottom"]
+material = SubResource("86")
+texture = ExtResource("40")
+centered = false
+
+[node name="Mouth_Teeth_Bottom_2" type="Sprite2D" parent="CHARACTER_Controller/Switch_Mouth_Teeth_Bottom"]
+material = SubResource("87")
+texture = ExtResource("44")
+centered = false
+
+[node name="Mouth_Teeth_Bottom_1" type="Sprite2D" parent="CHARACTER_Controller/Switch_Mouth_Teeth_Bottom"]
+material = SubResource("88")
+texture = ExtResource("42")
+centered = false
+
+[node name="LIPS" type="Node2D" parent="CHARACTER_Controller"]
+script = ExtResource("22")
+use_mask = false
+
+[node name="Mouth_Lips" type="Sprite2D" parent="CHARACTER_Controller/LIPS"]
+material = SubResource("110")
+position = Vector2(0.443573, 1.30078)
+texture = ExtResource("50")
+centered = false
+
+[node name="Switch_Eyes_Base_1" type="Node2D" parent="CHARACTER_Controller"]
+
+[node name="Eyes_Base_3" type="Sprite2D" parent="CHARACTER_Controller/Switch_Eyes_Base_1"]
+texture = ExtResource("46")
+centered = false
+
+[node name="Eyes_Base_2" type="Sprite2D" parent="CHARACTER_Controller/Switch_Eyes_Base_1"]
+texture = ExtResource("49")
+centered = false
+
+[node name="Eyes_Base_1" type="Sprite2D" parent="CHARACTER_Controller/Switch_Eyes_Base_1"]
+texture = ExtResource("47")
+centered = false
+
+[node name="PUPILS" type="Node2D" parent="CHARACTER_Controller"]
+
+[node name="Pupils" type="Sprite2D" parent="CHARACTER_Controller/PUPILS"]
+texture = ExtResource("48")
+centered = false
+
+[node name="AnimationPlayer_RecolorCharacter" type="AnimationPlayer" parent="CHARACTER_Controller"]
+libraries = {
+"": SubResource("AnimationLibrary_wecnh")
+}
+
+[node name="CustomizationMNU_Controller" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 205.0
+offset_top = 533.0
+offset_right = 505.0
+offset_bottom = 713.0
+script = ExtResource("95")
+animation_player_path = NodePath("../CHARACTER_Controller/AnimationPlayer_RecolorCharacter")
+character_root_path = NodePath("../CHARACTER_Controller")
+
+[node name="SelectionMNU_BGControl" type="Control" parent="CustomizationMNU_Controller"]
+anchors_preset = 0
+offset_left = 39.0
+offset_top = 4.0
+offset_right = 264.0
+offset_bottom = 79.0
+
+[node name="CustomizationMNUBG" type="Sprite2D" parent="CustomizationMNU_Controller/SelectionMNU_BGControl"]
+position = Vector2(112, 38)
+scale = Vector2(0.999999, 0.999998)
+texture = ExtResource("51")
+
+[node name="SelectedOptionBG" type="Sprite2D" parent="CustomizationMNU_Controller/SelectionMNU_BGControl"]
+position = Vector2(112, 38)
+scale = Vector2(0.999999, 0.999998)
+texture = ExtResource("57")
+
+[node name="MNUOptionIconsControl" type="Control" parent="CustomizationMNU_Controller"]
+clip_contents = true
+anchors_preset = 0
+offset_left = 50.0
+offset_top = 4.0
+offset_right = 255.0
+offset_bottom = 79.0
+
+[node name="CategoryMNUControl" type="Control" parent="CustomizationMNU_Controller/MNUOptionIconsControl"]
+anchors_preset = 0
+offset_left = 76.0
+offset_top = 14.0
+offset_right = 576.0
+offset_bottom = 64.0
+
+[node name="HeadOptions" type="TextureRect" parent="CustomizationMNU_Controller/MNUOptionIconsControl/CategoryMNUControl"]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("54")
+stretch_mode = 4
+
+[node name="HeadDetailOptions" type="TextureRect" parent="CustomizationMNU_Controller/MNUOptionIconsControl/CategoryMNUControl"]
+layout_mode = 0
+offset_left = 50.0
+offset_right = 100.0
+offset_bottom = 50.0
+texture = ExtResource("62")
+stretch_mode = 4
+
+[node name="EyeOptions" type="TextureRect" parent="CustomizationMNU_Controller/MNUOptionIconsControl/CategoryMNUControl"]
+layout_mode = 0
+offset_left = 100.0
+offset_right = 150.0
+offset_bottom = 50.0
+texture = ExtResource("55")
+stretch_mode = 4
+
+[node name="TopTeethOptions" type="TextureRect" parent="CustomizationMNU_Controller/MNUOptionIconsControl/CategoryMNUControl"]
+layout_mode = 0
+offset_left = 150.0
+offset_right = 200.0
+offset_bottom = 50.0
+texture = ExtResource("56")
+stretch_mode = 4
+
+[node name="BtmTeethOptions" type="TextureRect" parent="CustomizationMNU_Controller/MNUOptionIconsControl/CategoryMNUControl"]
+layout_mode = 0
+offset_left = 200.0
+offset_right = 250.0
+offset_bottom = 50.0
+texture = ExtResource("61")
+stretch_mode = 4
+
+[node name="BodyPatchOptions" type="TextureRect" parent="CustomizationMNU_Controller/MNUOptionIconsControl/CategoryMNUControl"]
+layout_mode = 0
+offset_left = 250.0
+offset_right = 300.0
+offset_bottom = 50.0
+texture = ExtResource("53")
+stretch_mode = 4
+
+[node name="BodyDetailOptions" type="TextureRect" parent="CustomizationMNU_Controller/MNUOptionIconsControl/CategoryMNUControl"]
+layout_mode = 0
+offset_left = 300.0
+offset_right = 350.0
+offset_bottom = 50.0
+texture = ExtResource("52")
+stretch_mode = 4
+
+[node name="ArmOptions" type="TextureRect" parent="CustomizationMNU_Controller/MNUOptionIconsControl/CategoryMNUControl"]
+layout_mode = 0
+offset_left = 350.0
+offset_right = 400.0
+offset_bottom = 50.0
+texture = ExtResource("58")
+stretch_mode = 4
+
+[node name="HandOptions" type="TextureRect" parent="CustomizationMNU_Controller/MNUOptionIconsControl/CategoryMNUControl"]
+layout_mode = 0
+offset_left = 400.0
+offset_right = 450.0
+offset_bottom = 50.0
+texture = ExtResource("60")
+stretch_mode = 4
+
+[node name="ToeOptions" type="TextureRect" parent="CustomizationMNU_Controller/MNUOptionIconsControl/CategoryMNUControl"]
+layout_mode = 0
+offset_left = 450.0
+offset_right = 500.0
+offset_bottom = 50.0
+texture = ExtResource("59")
+stretch_mode = 4
+
+[node name="SubMNUControl" type="Control" parent="CustomizationMNU_Controller"]
+anchors_preset = 0
+offset_left = 78.0
+offset_top = 91.0
+offset_right = 228.0
+offset_bottom = 141.0
+
+[node name="HeadOptionsSubMNU" type="HBoxContainer" parent="CustomizationMNU_Controller/SubMNUControl"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HeadOption1" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/HeadOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("67")
+
+[node name="HeadOption2" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/HeadOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("65")
+
+[node name="HeadOption3" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/HeadOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("66")
+
+[node name="HeadDetailSubMNU" type="HBoxContainer" parent="CustomizationMNU_Controller/SubMNUControl"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HeadDetailOption1" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/HeadDetailSubMNU"]
+layout_mode = 2
+texture = ExtResource("81")
+
+[node name="HeadDetailOption2" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/HeadDetailSubMNU"]
+layout_mode = 2
+texture = ExtResource("73")
+
+[node name="HeadDetailOption3" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/HeadDetailSubMNU"]
+layout_mode = 2
+texture = ExtResource("69")
+
+[node name="EyeOptionsSubMNU" type="HBoxContainer" parent="CustomizationMNU_Controller/SubMNUControl"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EyeOption1" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/EyeOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("72")
+
+[node name="EyeOption2" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/EyeOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("80")
+
+[node name="EyeOption3" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/EyeOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("74")
+
+[node name="TopTeethOptionsSubMNU" type="HBoxContainer" parent="CustomizationMNU_Controller/SubMNUControl"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TopTeethOption1" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/TopTeethOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("75")
+
+[node name="TopTeethOption2" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/TopTeethOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("87")
+
+[node name="TopTeethOption3" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/TopTeethOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("76")
+
+[node name="BtmTeethOptionsSubMNU" type="HBoxContainer" parent="CustomizationMNU_Controller/SubMNUControl"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BtmTeethOption1" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/BtmTeethOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("70")
+
+[node name="BtmTeethOption2" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/BtmTeethOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("82")
+
+[node name="BtmTeethOption3" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/BtmTeethOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("68")
+
+[node name="BodyPatchOptionsSubMNU" type="HBoxContainer" parent="CustomizationMNU_Controller/SubMNUControl"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BodyPatchOption1" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/BodyPatchOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("71")
+
+[node name="BodyPatchOption2" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/BodyPatchOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("77")
+
+[node name="BodyPatchOption3" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/BodyPatchOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("78")
+
+[node name="BodyDetailOptionsSubMNU" type="HBoxContainer" parent="CustomizationMNU_Controller/SubMNUControl"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BodyDetailOption1" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/BodyDetailOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("88")
+
+[node name="BodyDetailOption2" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/BodyDetailOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("79")
+
+[node name="BodyDetailOption3" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/BodyDetailOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("83")
+
+[node name="ArmOptionsSubMNU" type="HBoxContainer" parent="CustomizationMNU_Controller/SubMNUControl"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ArmOption1" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/ArmOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("84")
+
+[node name="ArmOption2" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/ArmOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("85")
+
+[node name="ArmOption3" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/ArmOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("86")
+
+[node name="HandOptionsSubMNU" type="HBoxContainer" parent="CustomizationMNU_Controller/SubMNUControl"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HanddOption1" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/HandOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("92")
+
+[node name="HandOption2" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/HandOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("93")
+
+[node name="HandOption3" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/HandOptionsSubMNU"]
+layout_mode = 2
+texture = ExtResource("94")
+
+[node name="ToeOptionsSubMNU2" type="HBoxContainer" parent="CustomizationMNU_Controller/SubMNUControl"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ToeOption1" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/ToeOptionsSubMNU2"]
+layout_mode = 2
+texture = ExtResource("89")
+
+[node name="ToeOption2" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/ToeOptionsSubMNU2"]
+layout_mode = 2
+texture = ExtResource("90")
+
+[node name="ToeOption3" type="TextureRect" parent="CustomizationMNU_Controller/SubMNUControl/ToeOptionsSubMNU2"]
+layout_mode = 2
+texture = ExtResource("91")
+
+[node name="ArrowLeft" type="TextureRect" parent="CustomizationMNU_Controller"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 25.0
+offset_right = 49.0
+offset_bottom = 65.0
+texture = ExtResource("64")
+
+[node name="ArrowRight" type="TextureRect" parent="CustomizationMNU_Controller"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 24.0
+offset_right = 294.0
+offset_bottom = 64.0
+texture = ExtResource("63")
+
+[node name="CustomizationManager" type="Node2D" parent="."]
+
+[node name="ColorSwatchesControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 518.0
+offset_top = 335.0
+offset_right = 668.0
+offset_bottom = 495.0
+script = ExtResource("102")
+animation_player_path = NodePath("../CHARACTER_Controller/AnimationPlayer_RecolorCharacter")
+character_root_path = NodePath("../CHARACTER_Controller")
+
+[node name="ColorSwatch1" type="TextureRect" parent="ColorSwatchesControl"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 32.0
+offset_bottom = 123.0
+texture = ExtResource("96")
+
+[node name="ColorSwatch2" type="TextureRect" parent="ColorSwatchesControl"]
+layout_mode = 0
+offset_left = 34.0
+offset_right = 65.0
+offset_bottom = 124.0
+texture = ExtResource("99")
+
+[node name="ColorSwatch3" type="TextureRect" parent="ColorSwatchesControl"]
+layout_mode = 0
+offset_left = 69.0
+offset_right = 100.0
+offset_bottom = 124.0
+texture = ExtResource("97")
+
+[node name="ColorSwatch4" type="TextureRect" parent="ColorSwatchesControl"]
+layout_mode = 0
+offset_left = 103.0
+offset_right = 133.0
+offset_bottom = 124.0
+texture = ExtResource("100")
+
+[node name="ToggleSlot1" type="TextureRect" parent="ColorSwatchesControl"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 131.0
+offset_right = 22.0
+offset_bottom = 171.0
+texture = ExtResource("101")
+
+[node name="ToggleSlot2" type="TextureRect" parent="ColorSwatchesControl"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 131.0
+offset_right = 58.0
+offset_bottom = 171.0
+texture = ExtResource("101")
+
+[node name="ToggleSlot3" type="TextureRect" parent="ColorSwatchesControl"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 131.0
+offset_right = 92.0
+offset_bottom = 171.0
+texture = ExtResource("101")
+
+[node name="ToggleSlot4" type="TextureRect" parent="ColorSwatchesControl"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 131.0
+offset_right = 125.0
+offset_bottom = 171.0
+texture = ExtResource("101")
+
+[node name="ToggleBtn1" type="TextureRect" parent="ColorSwatchesControl"]
+layout_mode = 0
+offset_top = 144.0
+offset_right = 30.0
+offset_bottom = 174.0
+texture = ExtResource("98")
+
+[node name="ToggleBtn2" type="TextureRect" parent="ColorSwatchesControl"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 144.0
+offset_right = 66.0
+offset_bottom = 174.0
+texture = ExtResource("98")
+
+[node name="ToggleBtn3" type="TextureRect" parent="ColorSwatchesControl"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 144.0
+offset_right = 100.0
+offset_bottom = 174.0
+texture = ExtResource("98")
+
+[node name="ToggleBtn4" type="TextureRect" parent="ColorSwatchesControl"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 144.0
+offset_right = 134.0
+offset_bottom = 174.0
+texture = ExtResource("98")
+
+[node name="SaveCharacterButton" type="TextureButton" parent="."]
+offset_left = 512.0
+offset_top = 259.0
+offset_right = 1112.0
+offset_bottom = 544.0
+scale = Vector2(0.244437, 0.244437)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("103")
+texture_pressed = ExtResource("104")
+texture_hover = ExtResource("105")
