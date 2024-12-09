@@ -20,6 +20,17 @@ body {
     overflow: hidden;
 }
 
+.Overlay_Content {
+    position: fixed; /* Fix to bottom of the viewport */
+    left: 50%; /* Center horizontally */
+    bottom: 50px; /* Set 50px margin from the bottom */
+    transform: translateX(-50%); /* Center align */
+    width: 90%; /* Make it responsive */
+    max-width: 600px; /* Limit the width */
+    text-align: center;
+    z-index: 10; /* Ensure it sits on top of other elements */
+}
+
 #wrapper {
     position: relative;
     width: 100%;
