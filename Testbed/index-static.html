@@ -28,21 +28,41 @@
       </div>
 
       <!-- SliderWithLogo Component -->
-      <div class="SliderBox">
-        <button class="slider-arrow left-arrow">
-          <img src="./images/BM_Homepage__0001_ArrowLeft.webp" alt="Previous">
-        </button>
-        
-        <div class="SlideBoxInt">
-          <div class="MonstersLogo">
-            <img src="./images/BM_Homepage__0015_Logo-copy.webp" alt="Monsters Logo">
-          </div>
-          <img id="sliderImage" src="./images/BM_Homepage__0003_TapTracksPlayNowSlide.webp" alt="Slider Image">
+      <div class="slider-wrapper">
+        <div class="MonstersLogo">
+          <img src="./images/BM_Homepage__0015_Logo-copy.webp" alt="Monsters Logo">
         </div>
         
-        <button class="slider-arrow right-arrow">
-          <img src="./images/BM_Homepage__0002_ArrowRight.webp" alt="Next">
-        </button>
+        <div class="SliderBox">
+          <button class="slider-arrow left-arrow">
+            <img src="./images/BM_Homepage__0001_ArrowLeft.webp" alt="Previous">
+          </button>
+          
+          <div class="SlideBoxInt">
+            <div class="slider-track">
+              <!-- Slides remain the same -->
+              <div class="slide">
+                <img src="./images/BM_Homepage__0000_NewBooksSlide.webp" alt="Slide 3">
+              </div>
+              <div class="slide">
+                <img src="./images/BM_Homepage__0003_TapTracksPlayNowSlide.webp" alt="Slide 1">
+              </div>
+              <div class="slide">
+                <img src="./images/BM_Homepage__0019_NewEpisodeWatchNowSlide.webp" alt="Slide 2">
+              </div>
+              <div class="slide">
+                <img src="./images/BM_Homepage__0000_NewBooksSlide.webp" alt="Slide 3">
+              </div>
+              <div class="slide">
+                <img src="./images/BM_Homepage__0003_TapTracksPlayNowSlide.webp" alt="Slide 1">
+              </div>
+            </div>
+          </div>
+          
+          <button class="slider-arrow right-arrow">
+            <img src="./images/BM_Homepage__0002_ArrowRight.webp" alt="Next">
+          </button>
+        </div>
       </div>
 
       <div class="SlideTracker">
@@ -164,20 +184,118 @@ function createPopupContent() {
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize slider dots
+  const sliderTrack = document.querySelector('.slider-track');
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.querySelector('.slider-dots');
+  let currentSlide = 1;  // Start at first real slide (index 1 because of clone)
+  const totalSlides = 3; // Number of actual slides (not counting clones)
+
+  // Initialize slider
+  updateSliderPosition(false);
   createDots();
+  updateDots();
 
-  // Slider arrow clicks
-  document.querySelector('.left-arrow').addEventListener('click', () => updateSlider('prev'));
-  document.querySelector('.right-arrow').addEventListener('click', () => updateSlider('next'));
+  function createDots() {
+    dotsContainer.innerHTML = Array.from({ length: totalSlides }).map((_, index) => `
+      <div class="SlideTrackerDot ${index === currentSlide - 1 ? 'active' : ''}" data-index="${index}"></div>
+    `).join('');
+  }
 
-  // Dot navigation
-  sliderDots.addEventListener('click', (e) => {
+  function updateDots() {
+    const dots = document.querySelectorAll('.SlideTrackerDot');
+    const activeIndex = ((currentSlide - 1 + totalSlides) % totalSlides);
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === activeIndex);
+    });
+  }
+
+  function updateSliderPosition(transition = true) {
+    const slideWidth = 20;
+    sliderTrack.style.transition = transition ? 'transform 0.5s ease-in-out' : 'none';
+    sliderTrack.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+    
+    // Update opacity classes
+    slides.forEach((slide, index) => {
+        slide.classList.remove('active', 'adjacent');
+        if (index === currentSlide) {
+            slide.classList.add('active');
+        } else if (index === currentSlide - 1 || index === currentSlide + 1) {
+            slide.classList.add('adjacent');
+        }
+    });
+  }
+
+  function handleSlideTransition(direction) {
+    if (direction === 'next') {
+      currentSlide++;
+    } else {
+      currentSlide--;
+    }
+    
+    updateSliderPosition();
+    updateDots();
+
+    // Handle infinite scroll
+    sliderTrack.addEventListener('transitionend', function() {
+      if (currentSlide >= 4) { // At clone of first slide
+        currentSlide = 1;  // Jump to real first slide
+        updateSliderPosition(false);
+      } else if (currentSlide <= 0) { // At clone of last slide
+        currentSlide = 3;  // Jump to real last slide
+        updateSliderPosition(false);
+      }
+    }, { once: true });
+  }
+
+  // Event Listeners
+  document.querySelector('.left-arrow').addEventListener('click', () => handleSlideTransition('prev'));
+  document.querySelector('.right-arrow').addEventListener('click', () => handleSlideTransition('next'));
+
+  dotsContainer.addEventListener('click', (e) => {
     const dot = e.target.closest('.SlideTrackerDot');
     if (dot) {
-      currentSlide = parseInt(dot.dataset.index);
-      sliderImage.src = sliderImages[currentSlide];
+      const index = parseInt(dot.dataset.index);
+      currentSlide = index + 1;
+      updateSliderPosition();
       updateDots();
+    }
+  });
+
+  // Auto-advance slider
+  setInterval(() => handleSlideTransition('next'), 5000);
+
+  // Touch events for mobile slider
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  sliderTrack.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, false);
+
+  sliderTrack.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, false);
+
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const swipeLength = touchEndX - touchStartX;
+    
+    if (Math.abs(swipeLength) > swipeThreshold) {
+      if (swipeLength > 0) {
+        handleSlideTransition('prev');
+      } else {
+        handleSlideTransition('next');
+      }
+    }
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      handleSlideTransition('prev');
+    } else if (e.key === 'ArrowRight') {
+      handleSlideTransition('next');
     }
   });
 
@@ -193,46 +311,6 @@ document.addEventListener('DOMContentLoaded', function() {
   popup.addEventListener('click', (e) => {
     if (e.target === popup) {
       popup.style.display = 'none';
-    }
-  });
-
-  // Auto-advance slider
-  setInterval(() => updateSlider('next'), 5000);
-
-  // Touch events for mobile slider
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  const sliderBox = document.querySelector('.SliderBox');
-  
-  sliderBox.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  }, false);
-
-  sliderBox.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  }, false);
-
-  function handleSwipe() {
-    const swipeThreshold = 50;
-    const swipeLength = touchEndX - touchStartX;
-    
-    if (Math.abs(swipeLength) > swipeThreshold) {
-      if (swipeLength > 0) {
-        updateSlider('prev');
-      } else {
-        updateSlider('next');
-      }
-    }
-  }
-
-  // Keyboard navigation for slider
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') {
-      updateSlider('prev');
-    } else if (e.key === 'ArrowRight') {
-      updateSlider('next');
     }
   });
 });
