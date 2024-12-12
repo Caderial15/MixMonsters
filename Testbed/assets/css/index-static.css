@@ -18,7 +18,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+img {
+  overflow-clip-margin: content-box;
+  overflow: visible;
+}
 body {
   margin: 0;
   display: flex;
@@ -39,7 +42,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-    gap: 20px;
+  gap: 20px;
 }
 
 /* Main Menu Styling */
@@ -80,9 +83,8 @@ body {
 .SliderBox {
   position: relative;
   width: 100%;
-  max-width: 1000px;
-  margin: 40px auto 0;
   text-align: center;
+  overflow: hidden;
 }
 
 .SlideBoxInt {
@@ -91,15 +93,15 @@ body {
   aspect-ratio: 16/9;
   display: inline-block;
   vertical-align: middle;
+  overflow: visible;
 }
 
 .MonstersLogo {
   position: absolute;
-  top: -40px;
+  top: 0;
   left: 45%;
   transform: translateX(-50%);
-  z-index: 3;
-  transition: transform 0.3s ease;
+  z-index: 10;
 }
 
 .MonstersLogo img {
@@ -152,7 +154,7 @@ body {
 .slider-dots {
   display: flex;
   gap: 10px;
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .SlideTrackerDot {
@@ -287,28 +289,20 @@ body {
   transform: scale(1.15);
 }
 
-img {
-    overflow-clip-margin: content-box;
-    overflow: visible;
-}
-
 /* Media Queries */
 @media (max-width: 768px) {
   .page-container {
     padding: 10px;
-    gap: 1px;
   }
-.slider-dots {
-  display: flex;
-  gap: 10px;
-    margin-top: 20px;
-}
-.responsive-title {
+
+  .MonstersLogo {
+    left: 50%;
+  }
+
+  .responsive-title {
     font-size: 20px;
-}
-.MonstersLogo {
-  left: 50%;
-}
+  }
+
   .SliderBox {
     transform: scale(1.05);
   }
@@ -363,11 +357,7 @@ img {
     transform: scale(1.1);
   }
 }
-@media (max-width: 550px) {
-    .slider-dots {
-    margin-top: 10px;
-}
-}
+
 /* Animations */
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -378,4 +368,118 @@ img {
 .img-responsive {
   max-width: 100%;
   height: auto;
+}
+
+/* Add new styles for slider track and slides */
+.slider-track {
+  display: flex;
+  width: 500%; /* Width for 5 slides (3 main + 2 clones) */
+  transform: translateX(-20%); /* Initial position */
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  width: 20%;
+  padding: 0 1%;
+  flex-shrink: 0;
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide.adjacent {
+  opacity: 0.6;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+/* Add new wrapper styling */
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: -45px auto 0;
+  padding-top: 40px; /* Make room for logo */
+}
+
+/* Remove all content: url() approaches and fix all buttons */
+
+/* Profile and Cart buttons */
+.btn-profile:hover img {
+  opacity: 0;
+}
+.btn-profile {
+  background-image: url('../../images/BM__0004s_0006_Profile_Default_Purlple.webp');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.btn-profile:hover {
+  background-image: url('../../images/BM__0004s_0004_Profile_Hover_Purlple.webp');
+  background-size: 100%;
+}
+
+.btn-cart:hover img {
+  opacity: 0;
+}
+.btn-cart {
+  background-image: url('../../images/BM__0004s_0007_Cart_Default_Purlple.webp');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.btn-cart:hover {
+  background-image: url('../../images/BM__0004s_0005_Cart_Hover_Purlple.webp');
+  background-size: 100%;
+}
+
+/* Add hover image swaps for other buttons */
+.btn-play img {
+  content: url('../../images/BM_Homepage__0001_PLAY.webp');
+}
+.btn-play:hover img {
+  content: url('../../images/BM_Homepage__0001_PLAY_Hover_Sel.webp');
+}
+
+.btn-shop img {
+  content: url('../../images/BM_Homepage__0000_SHOP.webp');
+}
+.btn-shop:hover img {
+  content: url('../../images/BM_Homepage__0000_SHOP_Hov_Sel.webp');
+}
+
+.btn-books img {
+  content: url('../../images/BM__0003s_0001_MAINPage_BTN_Books.webp');
+}
+.btn-books:hover img {
+  content: url('../../images/BM__0003s_0001_MAINPage_BTN_Books_Hov_Sel.webp');
+}
+
+.btn-animations img {
+  content: url('../../images/BM__0003s_0002_MAINPage_BTN_Videos.webp');
+}
+.btn-animations:hover img {
+  content: url('../../images/BM__0003s_0002_MAINPage_BTN_Videos_Hov_Sel.webp');
+}
+
+.btn-other-gifts img {
+  content: url('../../images/BM__0003s_0000_MAINPage_BTN_OtherGifts.webp');
+}
+.btn-other-gifts:hover img {
+  content: url('../../images/BM__0003s_0000_MAINPage_BTN_OtherGifts_Hove_Sel.webp');
+}
+
+.btn-go-premium img {
+  content: url('../../images/BM__0006s_0007_GoPremiumBTN_Default.webp');
+}
+.btn-go-premium:hover img {
+  content: url('../../images/BM__0006s_0006_GoPremiumBTN_Hover_Sel.webp');
 }
