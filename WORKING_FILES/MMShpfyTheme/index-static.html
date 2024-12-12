@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BM Monster Machine</title>
+    <link rel="stylesheet" href="./assets/css/index-static.css">
+    <!-- Add Sekate font -->
+    <link rel="stylesheet" href="./images/fonts/Sekate.otf">
+  </head>
+  <body>
+    <div class="page-container">
+      <!-- MainMenu Component -->
+      <div class="MainMnu">
+        <nav>
+          <div class="logo-link">
+            <img src="./images/BM__0005s_0002_LogoIntroStandalone.webp" alt="Logo" height="60px">
+          </div>
+          <div class="nav-buttons">
+            <button class="btn-hover2 btn-profile">
+              <img src="./images/BM__0004s_0006_Profile_Default_Purlple.webp" alt="Profile">
+            </button>
+            <button class="btn-hover2 btn-cart">
+              <img src="./images/BM__0004s_0007_Cart_Default_Purlple.webp" alt="Cart">
+            </button>
+          </div>
+        </nav>
+      </div>
+
+      <!-- SliderWithLogo Component -->
+      <div class="SliderBox">
+        <button class="slider-arrow left-arrow">
+          <img src="./images/BM_Homepage__0001_ArrowLeft.webp" alt="Previous">
+        </button>
+        
+        <div class="SlideBoxInt">
+          <div class="MonstersLogo">
+            <img src="./images/BM_Homepage__0015_Logo-copy.webp" alt="Monsters Logo">
+          </div>
+          <img id="sliderImage" src="./images/BM_Homepage__0003_TapTracksPlayNowSlide.webp" alt="Slider Image">
+        </div>
+        
+        <button class="slider-arrow right-arrow">
+          <img src="./images/BM_Homepage__0002_ArrowRight.webp" alt="Next">
+        </button>
+      </div>
+
+      <div class="SlideTracker">
+        <div class="slider-dots"></div>
+      </div>
+
+      <!-- PlayShopButtons Component -->
+      <div class="btn-container">
+        <button class="btn-hover btn-play"><img src="./images/BM_Homepage__0001_PLAY.webp" alt="Play"></button>
+        <button class="btn-hover btn-shop"><img src="./images/BM_Homepage__0000_SHOP.webp" alt="Shop"></button>
+      </div>
+
+      <div class="PageStack"></div>
+
+      <!-- Hero Section -->
+      <div class="hero-section" id="heroSection">
+        <img src="./images/BM__0003s_0006_HeroIMG_2.webp" alt="Hero">
+      </div>
+
+      <div class="PageStack"></div>
+
+      <!-- PersonalizedProductsMenu Component -->
+      <div class="content-wrapper">
+        <h2 class="responsive-title">PERSONALIZED PRODUCTS</h2>
+        <div class="section group">
+          <button class="btn-hover btn-books">
+            <img src="./images/BM__0003s_0001_MAINPage_BTN_Books.webp" alt="Books">
+          </button>
+          <button class="btn-hover btn-animations">
+            <img src="./images/BM__0003s_0002_MAINPage_BTN_Videos.webp" alt="Animations">
+          </button>
+          <button class="btn-hover btn-other-gifts">
+            <img src="./images/BM__0003s_0000_MAINPage_BTN_OtherGifts.webp" alt="Other Gifts">
+          </button>
+        </div>
+      </div>
+
+      <!-- GoPremiumBtn Component -->
+      <div class="PremiumBtn">
+        <button class="btn-hover2 btn-go-premium">
+          <img src="./images/BM__0006s_0007_GoPremiumBTN_Default.webp" alt="Go Premium">
+        </button>
+      </div>
+    </div>
+
+    <!-- Popup Component -->
+    <div id="popup" class="popup-overlay" style="display: none;">
+      <!-- Popup content will be injected here -->
+    </div>
+
+    <script>
+      // Constants
+const BASE_URL = './images/';
+
+// Slider Configuration
+const sliderImages = [
+  `${BASE_URL}BM_Homepage__0003_TapTracksPlayNowSlide.webp`,
+  `${BASE_URL}BM_Homepage__0019_NewEpisodeWatchNowSlide.webp`,
+  `${BASE_URL}BM_Homepage__0000_NewBooksSlide.webp`
+];
+
+let currentSlide = 0;
+const sliderImage = document.getElementById('sliderImage');
+const sliderDots = document.querySelector('.slider-dots');
+
+// Initialize Slider Dots
+function createDots() {
+  sliderDots.innerHTML = sliderImages.map((_, index) => `
+    <div class="SlideTrackerDot ${index === currentSlide ? 'active' : ''}" data-index="${index}"></div>
+  `).join('');
+}
+
+// Update Slider Dots
+function updateDots() {
+  const dots = document.querySelectorAll('.SlideTrackerDot');
+  dots.forEach((dot, index) => {
+    dot.classList.toggle('active', index === currentSlide);
+  });
+}
+
+// Slider Navigation
+function updateSlider(direction) {
+  if (direction === 'next') {
+    currentSlide = (currentSlide + 1) % sliderImages.length;
+  } else {
+    currentSlide = (currentSlide - 1 + sliderImages.length) % sliderImages.length;
+  }
+  sliderImage.style.opacity = '0';
+  setTimeout(() => {
+    sliderImage.src = sliderImages[currentSlide];
+    sliderImage.style.opacity = '1';
+  }, 200);
+  updateDots();
+}
+
+// Popup Content
+function createPopupContent() {
+  return `
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <div class="popup-header">
+        <div class="popup-text">
+          <h2>Your Child, Their Story</h2>
+          <h3>Personalized Books, Animations & Gifts!</h3>
+          <p>Turn your child into the hero of their own story!</p>
+        </div>
+        <div class="popup-image">
+          <img src="${BASE_URL}BM__0000_InfoDialog_BeatmonstersParty.webp" alt="Beatmonsters Party">
+        </div>
+      </div>
+      <button class="signup-button">Sign-up free & Start Customizing Now!</button>
+      <p class="popup-description">
+        Books or animations that can be shared over and over, these gifts become cherished keepsakes.
+      </p>
+      <img src="${BASE_URL}BM__0003_InfoDialog_ProductImg.webp" alt="Product Image" class="product-image">
+      <button class="signup-button">Sign-up it's Free!</button>
+    </div>
+  `;
+}
+
+// Event Listeners
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize slider dots
+  createDots();
+
+  // Slider arrow clicks
+  document.querySelector('.left-arrow').addEventListener('click', () => updateSlider('prev'));
+  document.querySelector('.right-arrow').addEventListener('click', () => updateSlider('next'));
+
+  // Dot navigation
+  sliderDots.addEventListener('click', (e) => {
+    const dot = e.target.closest('.SlideTrackerDot');
+    if (dot) {
+      currentSlide = parseInt(dot.dataset.index);
+      sliderImage.src = sliderImages[currentSlide];
+      updateDots();
+    }
+  });
+
+  // Hero section popup
+  const heroSection = document.getElementById('heroSection');
+  const popup = document.getElementById('popup');
+
+  heroSection.addEventListener('click', () => {
+    popup.style.display = 'flex';
+    popup.innerHTML = createPopupContent();
+  });
+
+  popup.addEventListener('click', (e) => {
+    if (e.target === popup) {
+      popup.style.display = 'none';
+    }
+  });
+
+  // Auto-advance slider
+  setInterval(() => updateSlider('next'), 5000);
+
+  // Touch events for mobile slider
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const sliderBox = document.querySelector('.SliderBox');
+  
+  sliderBox.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, false);
+
+  sliderBox.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, false);
+
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const swipeLength = touchEndX - touchStartX;
+    
+    if (Math.abs(swipeLength) > swipeThreshold) {
+      if (swipeLength > 0) {
+        updateSlider('prev');
+      } else {
+        updateSlider('next');
+      }
+    }
+  }
+
+  // Keyboard navigation for slider
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      updateSlider('prev');
+    } else if (e.key === 'ArrowRight') {
+      updateSlider('next');
+    }
+  });
+});
+    </script>
+  </body>
+</html>
