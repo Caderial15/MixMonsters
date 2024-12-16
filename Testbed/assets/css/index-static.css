@@ -291,6 +291,15 @@ body {
 
 /* Media Queries */
 @media (max-width: 768px) {
+  .SlideTracker {
+    padding: 0px;
+    margin-bottom: 15px;
+  }
+
+  .page-container {
+    gap: 5px;
+  }
+
   .page-container {
     padding: 10px;
   }
