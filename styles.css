@@ -346,3 +346,39 @@ html, body {
     70% { transform: translateY(-5%); opacity: 1; }
     to { transform: translateY(0); opacity: 1; }
 }
+
+
+.FormField {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: #000;
+}
+
+.FormSubmitBtn {
+    background-color: #27605B;
+    color: white;
+    font-family: 'ARCO', sans-serif;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 6px solid #2A8B73;
+}
+
+.FormSubmitBtn:hover {
+    background-color: #FF4B7D;
+    transform: translateY(-2px);
+    border: 6px solid #FF6699;
+}
+
+.FormSubmitBtn:active {
+    background-color: #C22F17;
+    transform: translateY(1px);
+    border: 6px solid #FF0000;
+}
