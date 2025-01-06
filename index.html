@@ -368,12 +368,27 @@ body {
                 <div class="LogoTagline" style="font-size: 42px;">SOON...</div>
                 <img src="images/logo.png" alt="Logo" class="Logo">
                 <div class="LogoTagline" style="font-size: min(24px, 4vw);">STAY UPDATED <span style="color: #A0E765">FOR EARLY PERKS</span></div>
-                <form class="form_row" id="signup-form" action="https://club.us22.list-manage.com/subscribe/post?u=fb5cdd927f154a50cc430809f&amp;id=082cc50bbd&amp;f_id=00c1c2e1f0" method="post" target="_blank" novalidate>
-                    <input type="hidden" name="u" value="fb5cdd927f154a50cc430809f">
-                    <input type="hidden" name="id" value="082cc50bbd">
-                    <input type="email" class="FormField" name="EMAIL" required placeholder="Enter your email">
-                    <button type="submit" class="FormSubmitBtn">Join</button>
-                </form>
+                <form action="https://club.us22.list-manage.com/subscribe/post?u=fb5cdd927f154a50cc430809f&amp;id=082cc50bbd&amp;f_id=00c1c2e1f0"
+      method="post"
+      id="mc-embedded-subscribe-form"
+      name="mc-embedded-subscribe-form"
+      class="form_row"
+      target="_blank"
+      novalidate>
+      
+    <input type="hidden" name="u" value="fb5cdd927f154a50cc430809f">
+    <input type="hidden" name="id" value="082cc50bbd">
+    <input type="hidden" name="f_id" value="00c1c2e1f0">
+    
+    <input type="email" class="FormField" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email" required>
+    
+    <div aria-hidden="true" style="position: absolute; left: -5000px;">
+        <input type="text" name="b_fb5cdd927f154a50cc430809f_082cc50bbd" tabindex="-1" value="">
+    </div>
+    
+    <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="FormSubmitBtn">Join</button>
+</form>
+
                 
                                 <div class="Form_Tagline" style="font-size: min(32px, 5vw);">JOIN THE WAITLIST TODAY<br/> Share: MIXMONSTERS.CLUB</div>
                 <div class="form_wrapper">
@@ -386,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('signup-form');
     
     form.addEventListener('submit', function(e) {
-        e.preventDefault();
+        /* e.preventDefault(); */
         
         const formRow = document.querySelector('.form_row');
         
