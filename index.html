@@ -251,6 +251,7 @@ body::before {
 }
 
 /* Animations */
+            
 @keyframes slideFromLeft {
     0% { transform: translateX(-120%); opacity: 0; }
     70% { transform: translateX(5%); opacity: 1; }
@@ -292,6 +293,61 @@ body::before {
     70% { opacity: 1; transform: translateY(-5px) scale(1.05); }
     100% { opacity: 1; transform: translateY(0) scale(1); }
 }
+    
+.Slide img.default-image {
+    opacity: 1; /* Always visible */
+    position: absolute; /* Stacked below the hover image */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.Slide img.hover-image {
+    opacity: 0; /* Initially hidden */
+    position: absolute; /* Stacked over the default image */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: hoverEffect 10s infinite;
+}
+
+@keyframes hoverEffect {
+    0%, 10% {
+        opacity: 0; /* Hidden */
+    }
+    10%, 20% {
+        opacity: 1; /* Fade in */
+    }
+    20%, 100% {
+        opacity: 0; /* Fade out */
+    }
+}
+
+/* Staggered Animations for Each Slide */
+.Slide:nth-child(1) img.hover-image {
+    animation-delay: 0s;
+}
+
+.Slide:nth-child(2) img.hover-image {
+    animation-delay: 2s;
+}
+
+.Slide:nth-child(3) img.hover-image {
+    animation-delay: 4s;
+}
+
+.Slide:nth-child(4) img.hover-image {
+    animation-delay: 6s;
+}
+
+.Slide:nth-child(5) img.hover-image {
+    animation-delay: 8s;
+}
+
 
 /* Animation Assignments */
 .Slide:nth-child(1) {
