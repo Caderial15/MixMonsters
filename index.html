@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Mix Monsters Landing Page</title>
+<script>
+    // Mobile browser detection
+    function isMobile() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+               (window.innerWidth <= 768); // Also check viewport width
+    }
+    
+    // Redirect if on mobile
+    if (isMobile() && !window.location.pathname.includes('index-mobile.html')) {
+        window.location.href = 'index-mobile.html';
+    }
+</script>
     <style>
 @font-face {
     font-family: 'ARCO';
