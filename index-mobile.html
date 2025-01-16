@@ -218,10 +218,26 @@
             <div class="tagline">SOON...</div>
             <img src="images/logo.png" alt="Logo" class="logo">
             <div class="tagline">STAY UPDATED <br><span style="color: #A0E765">FOR EARLY PERKS</span></div>
-            <form class="form-row">
-                <input type="email" class="form-field" placeholder="Enter your email">
-                <button type="submit" class="submit-btn">Join</button>
-            </form>
+<form action="https://club.us22.list-manage.com/subscribe/post?u=fb5cdd927f154a50cc430809f&amp;id=082cc50bbd&amp;f_id=00c1c2e1f0"
+      method="post"
+      id="mc-embedded-subscribe-form"
+      name="mc-embedded-subscribe-form"
+      class="form-row"
+      target="_blank"
+      novalidate>
+      
+    <input type="hidden" name="u" value="fb5cdd927f154a50cc430809f">
+    <input type="hidden" name="id" value="082cc50bbd">
+    <input type="hidden" name="f_id" value="00c1c2e1f0">
+    
+    <input type="email" class="form-field" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email" required>
+    
+    <div aria-hidden="true" style="position: absolute; left: -5000px;">
+        <input type="text" name="b_fb5cdd927f154a50cc430809f_082cc50bbd" tabindex="-1" value="">
+    </div>
+    
+    <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="submit-btn">Join</button>
+</form>
             <div class="tagline">JOIN THE WAITLIST!</div>
             <div class="tagline" style="margin-top: 10px;">Share us:</div>
             <div class="social-icons">
@@ -240,5 +256,59 @@
             </div>
         </div>
     </div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('mc-embedded-subscribe-form');
+    
+    form.addEventListener('submit', function(e) {
+        /* e.preventDefault(); */
+        
+        const formRow = document.querySelector('.form-row');
+        
+        // First, clear the form content
+        formRow.style.justifyContent = 'center'; // Center the message
+        formRow.innerHTML = `
+            <div style="
+                color: white;
+                font-family: 'ARCO', sans-serif;
+                font-size: 32px;
+                text-align: center;
+                padding: 20px;
+                width: 100%;
+                background: black;
+            ">
+                PLEASE WAIT...
+            </div>
+        `;
+
+        const formData = new FormData(form);
+        fetch(form.action.replace('-json', ''), {
+            method: 'POST',
+            mode: 'no-cors',
+            body: formData
+        })
+        .then(() => {
+            setTimeout(() => {
+                formRow.innerHTML = `
+                    <div style="
+                        color: white;
+                        font-family: 'ARCO', sans-serif;
+                        font-size: 32px;
+                        text-align: center;
+                        width: 100%;
+                    ">
+                        Thank you for Signing Up!<br>
+                        <span style="color: #A0E765">Follow us Everywhere: @MixMonsters</span>
+                    </div>
+                `;
+            }, 1500);
+        })
+        .catch(() => {
+            formRow.innerHTML = form.innerHTML; // Restore the form
+            alert('There was an error with your submission. Please try again.');
+        });
+    });
+});
+</script>
 </body>
 </html>
