@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Mix Monsters Mobile Layout</title>
+    <style>
+        @font-face {
+            font-family: 'ARCO';
+            src: url('fonts/ARCO.ttf') format('truetype');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            height: 100vh;
+            width: 100vw;
+            gap: 0;
+        }
+
+        .grid-item {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .base-color, .hover-color {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.3s ease;
+        }
+
+        .hover-color {
+            opacity: 0;
+            animation: hoverEffect 10s infinite;
+        }
+
+        /* Different colors for each grid item */
+        .grid-item:nth-child(1) .base-color { background: #FF4B7D; }
+        .grid-item:nth-child(1) .hover-color { background: #27605B; }
+        
+        .grid-item:nth-child(2) .base-color { background: #A0E765; }
+        .grid-item:nth-child(2) .hover-color { background: #FF6699; }
+        
+        .grid-item:nth-child(3) .base-color { background: #2A8B73; }
+        .grid-item:nth-child(3) .hover-color { background: #C22F17; }
+        
+        .grid-item:nth-child(4) .base-color { background: #FF6699; }
+        .grid-item:nth-child(4) .hover-color { background: #A0E765; }
+        
+        .grid-item:nth-child(5) .base-color { background: #27605B; }
+        .grid-item:nth-child(5) .hover-color { background: #FF4B7D; }
+        
+        .grid-item:nth-child(6) .base-color { background: #C22F17; }
+        .grid-item:nth-child(6) .hover-color { background: #2A8B73; }
+
+        /* Initial states for animations */
+        .grid-item {
+            opacity: 0;
+        }
+
+        /* Entry animations */
+        .grid-item:nth-child(1) { animation: slideFromTop 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .grid-item:nth-child(2) { animation: slideFromTop 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.2s; }
+        .grid-item:nth-child(3) { animation: slideFromLeft 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.4s; }
+        .grid-item:nth-child(4) { animation: slideFromRight 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.6s; }
+        .grid-item:nth-child(5) { animation: slideFromBottom 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.8s; }
+        .grid-item:nth-child(6) { animation: slideFromBottom 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 1s; }
+
+        /* Hover effect animations with delays */
+        .grid-item:nth-child(1) .hover-color { animation-delay: 0s; }
+        .grid-item:nth-child(2) .hover-color { animation-delay: 2s; }
+        .grid-item:nth-child(3) .hover-color { animation-delay: 4s; }
+        .grid-item:nth-child(4) .hover-color { animation-delay: 6s; }
+        .grid-item:nth-child(5) .hover-color { animation-delay: 8s; }
+        .grid-item:nth-child(6) .hover-color { animation-delay: 10s; }
+
+        /* Animation keyframes */
+        @keyframes slideFromTop {
+            0% { transform: translateY(-100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideFromBottom {
+            0% { transform: translateY(100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideFromLeft {
+            0% { transform: translateX(-100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideFromRight {
+            0% { transform: translateX(100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes hoverEffect {
+            0%, 10% { opacity: 0; }
+            10%, 20% { opacity: 1; }
+            20%, 100% { opacity: 0; }
+        }
+
+        /* Overlay styles */
+        .overlay-container {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 600px;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .overlay-content {
+            background: rgba(0, 0, 0, 0.0);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .logo {
+            width: 200px;
+            margin: 10px auto;
+        }
+
+        .tagline {
+            font-family: 'ARCO', sans-serif;
+            color: #fff;
+            margin: 0px;
+            font-size: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .form-field {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            background: #27605B;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-family: 'ARCO', sans-serif;
+            cursor: pointer;
+            border: 6px solid #2A8B73;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+       
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">
+            <div class="base-color"></div>
+            <div class="hover-color"></div>
+        </div>
+        <div class="grid-item">
+            <div class="base-color"></div>
+            <div class="hover-color"></div>
+        </div>
+        <div class="grid-item">
+            <div class="base-color"></div>
+            <div class="hover-color"></div>
+        </div>
+        <div class="grid-item">
+            <div class="base-color"></div>
+            <div class="hover-color"></div>
+        </div>
+        <div class="grid-item">
+            <div class="base-color"></div>
+            <div class="hover-color"></div>
+        </div>
+        <div class="grid-item">
+            <div class="base-color"></div>
+            <div class="hover-color"></div>
+        </div>
+    </div>
+
+    <div class="overlay-container">
+        <div class="overlay-content">
+            <div class="tagline">SOON...</div>
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <div class="tagline">STAY UPDATED <br><span style="color: #A0E765">FOR EARLY PERKS</span></div>
+            <form class="form-row">
+                <input type="email" class="form-field" placeholder="Enter your email">
+                <button type="submit" class="submit-btn">Join</button>
+            </form>
+            <div class="tagline">JOIN THE WAITLIST!</div>
+            <div class="tagline" style="margin-top: 10px;">Share us:</div>
+            <div class="social-icons">
+                <a href="#" class="social-icon">
+                    <img src="/api/placeholder/50/50" alt="Social Icon 1">
+                </a>
+                <a href="#" class="social-icon">
+                    <img src="/api/placeholder/50/50" alt="Social Icon 2">
+                </a>
+                <a href="#" class="social-icon">
+                    <img src="/api/placeholder/50/50" alt="Social Icon 3">
+                </a>
+                <a href="#" class="social-icon">
+                    <img src="/api/placeholder/50/50" alt="Social Icon 4">
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

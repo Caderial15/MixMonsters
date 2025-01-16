@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Mix Monsters Landing Page</title>
+    <style>
+        @font-face {
+            font-family: 'ARCO';
+            src: url('fonts/ARCO.ttf') format('truetype');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .Main_Wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .Content_Wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .Row {
+            position: absolute;
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+
+        .Slide {
+            width: 20%;
+            height: 100%;
+            position: relative;
+            opacity: 0;
+        }
+
+        .Slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .Slide .hover-image {
+            opacity: 0;
+            animation: hoverEffect 10s infinite;
+        }
+
+        /* Entry animations - alternating top/bottom */
+        .Slide:nth-child(1) { animation: slideFromTop 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .Slide:nth-child(2) { animation: slideFromBottom 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.2s; }
+        .Slide:nth-child(3) { animation: slideFromTop 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.4s; }
+        .Slide:nth-child(4) { animation: slideFromBottom 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.6s; }
+        .Slide:nth-child(5) { animation: slideFromTop 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.8s; }
+
+        /* Staggered hover animations */
+        .Slide:nth-child(1) .hover-image { animation-delay: 0s; }
+        .Slide:nth-child(2) .hover-image { animation-delay: 2s; }
+        .Slide:nth-child(3) .hover-image { animation-delay: 4s; }
+        .Slide:nth-child(4) .hover-image { animation-delay: 6s; }
+        .Slide:nth-child(5) .hover-image { animation-delay: 8s; }
+
+        @keyframes slideFromTop {
+            0% { transform: translateY(-100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideFromBottom {
+            0% { transform: translateY(100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes hoverEffect {
+            0%, 10% { opacity: 0; }
+            10%, 20% { opacity: 1; }
+            20%, 100% { opacity: 0; }
+        }
+
+        /* Updated Overlay Styles */
+        .overlay-container {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 600px;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .overlay-content {
+            background: rgba(0, 0, 0, 0.0);
+            padding: 20px;
+            border-radius: 10px;
+            padding-top: 80px;
+        }
+
+        .logo {
+            width: 200px;
+            margin: 10px auto;
+        }
+
+        .tagline {
+            font-family: 'ARCO', sans-serif;
+            color: #fff;
+            margin: 0px;
+            font-size: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .form-field {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            background: #27605B;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-family: 'ARCO', sans-serif;
+            cursor: pointer;
+            border: 6px solid #2A8B73;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .social-icon img {
+            border-radius: 5px; /* This adds rounded corners */
+        }
+        .social-icon:hover {
+            transform: scale(1.1); /* Scales the icon up by 10% on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="Main_Wrapper">
+        <div class="Content_Wrapper">
+            <div class="Row">
+                <div class="Slide">
+                    <img src="images_mobile/_0000_MM_DarkModeSite__0009_BTN_Defaul_1TALL.png" alt="Slide 1" class="default-image">
+                    <img src="images_mobile/_0001_MM_DarkModeSite__0004_BTN_Hover_1TALL.png" alt="Slide 1 Hover" class="hover-image">
+                </div>
+                <div class="Slide">
+                    <img src="images_mobile/_0002_MM_DarkModeSite__0008_BTN_Defaul_2TALL.png" alt="Slide 2" class="default-image">
+                    <img src="images_mobile/_0003_MM_DarkModeSite__0003_BTN_Hover_2TALL.png" alt="Slide 2 Hover" class="hover-image">
+                </div>
+                <div class="Slide">
+                    <img src="images_mobile/_0004_MM_DarkModeSite__0007_BTN_Defaul_3TALL.png" alt="Slide 3" class="default-image">
+                    <img src="images_mobile/_0005_MM_DarkModeSite__0002_BTN_Hover_3TALL.png" alt="Slide 3 Hover" class="hover-image">
+                </div>
+                <div class="Slide">
+                    <img src="images_mobile/_0006_MM_DarkModeSite__0006_BTN_Defaul_4TALL.png" alt="Slide 4" class="default-image">
+                    <img src="images_mobile/_0007_MM_DarkModeSite__0001_BTN_Hover_4TALL.png" alt="Slide 4 Hover" class="hover-image">
+                </div>
+                <div class="Slide">
+                    <img src="images_mobile/_0008_MM_DarkModeSite__0005_BTN_Defaul_5TALL.png" alt="Slide 5" class="default-image">
+                    <img src="images_mobile/_0009_MM_DarkModeSite__0000_BTN_Hover_5TALL.png" alt="Slide 5 Hover" class="hover-image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay-container">
+        <div class="overlay-content">
+            <div class="tagline">SOON...</div>
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <div class="tagline">STAY UPDATED <br><span style="color: #A0E765">FOR EARLY PERKS</span></div>
+            <form class="form-row">
+                <input type="email" class="form-field" placeholder="Enter your email">
+                <button type="submit" class="submit-btn">Join</button>
+            </form>
+            <div class="tagline">JOIN THE WAITLIST!</div>
+            <div class="tagline" style="margin-top: 10px;">Share us:</div>
+            <div class="social-icons">
+                <a href="https://bsky.app/profile/mixmonsters.bsky.social" class="social-icon">
+                    <img src="images_mobile/_0003_BlueskyIco.png" alt="Social Icon 1">
+                </a>
+                <a href="https://www.instagram.com/mixmonstersclub/" class="social-icon">
+                    <img src="images_mobile/_0002_InstagramIco.png" alt="Social Icon 2">
+                </a>
+                <a href="https://www.facebook.com/MixMonstersClub" class="social-icon">
+                    <img src="images_mobile/_0001_FacebookIco.png" alt="Social Icon 3">
+                </a>
+                <a href="https://www.threads.net/@mixmonstersclub" class="social-icon">
+                    <img src="images_mobile/_0000_ThreadsIco.png" alt="Social Icon 4">
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
