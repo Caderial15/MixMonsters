@@ -2,471 +2,241 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Mix Monsters Landing Page</title>
-<script>
-    // Mobile browser detection
-    function isMobile() {
-        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
-               (window.innerWidth <= 768); // Also check viewport width
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>Mix Monsters Landing Page</title> 
+    <script>
+    function isDesktop() {
+        return !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) && 
+               (window.innerWidth > 768);
     }
     
-    // Redirect if on mobile
-    if (isMobile() && !window.location.pathname.includes('index-mobile.html')) {
-        window.location.href = 'index-mobile.html';
+    if (isDesktop()) {
+        window.location.href = 'index.html';
     }
 </script>
     <style>
-@font-face {
-    font-family: 'ARCO';
-    src: url('fonts/ARCO.ttf') format('truetype');
-}
+        @font-face {
+            font-family: 'ARCO';
+            src: url('fonts/ARCO.ttf') format('truetype');
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-:root {
-    --vh: 1vh;
-}
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background: #16011f;
+        }
 
-html {
-    height: 100%;
-    overflow: hidden;
-}
+        .Main_Wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
 
-body {
-    min-height: 100%;
-    background: #000;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    background-image: url('images/RepeatBGFull.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: repeat-y;
-    background-attachment: fixed;
-}
-        
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.25); /* 15% transparent black */
-    z-index: -1; /* Ensures it overlays the background */
-    pointer-events: none; /* Allows clicks to pass through */
-}
+        .Content_Wrapper {
+            width: 100%;
+            max-width: 1280px;
+            height: 100%;
+            position: relative;
+            margin: 0 auto;
+            box-shadow: -10px 0 15px rgba(0, 0, 0, 0.5), 10px 0 15px rgba(0, 0, 0, 0.5);
+        }
 
-.Main_Wrapper {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: min(100vw, 1920px);
-    height: calc(min(100vw, 1920px) * (1080/1920));
-    transform: translateX(-50%);
-    min-width: 360px;
-    border: 10px #fff solid;
-}
+        .Row {
+            position: absolute;
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
 
-.Content_Wrapper {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    top: 0;
-    left: 0;
-}
+        .Slide {
+            width: 20%;
+            height: 100%;
+            position: relative;
+            opacity: 0;
+            display: flex;
+            align-items: flex-start;
+        }
 
-.Row {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    height: 100%;
-}
+        .Slide img {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.3s ease;
+        }
 
-.Slide {
-    width: 20%;
-    height: 100%;
-    position: relative;
-    opacity: 0;
-}
+        .Slide .hover-image {
+            opacity: 0;
+            animation: hoverEffect 10s infinite;
+        }
 
-.Slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: opacity 0.3s ease;
-}
+        /* Entry animations - alternating top/bottom */
+        .Slide:nth-child(1) { animation: slideFromTop 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .Slide:nth-child(2) { animation: slideFromBottom 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.2s; }
+        .Slide:nth-child(3) { animation: slideFromTop 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.4s; }
+        .Slide:nth-child(4) { animation: slideFromBottom 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.6s; }
+        .Slide:nth-child(5) { animation: slideFromTop 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.8s; }
 
-.Slide .hover-image {
-    opacity: 0;
-}
+        /* Staggered hover animations */
+        .Slide:nth-child(1) .hover-image { animation-delay: 0s; }
+        .Slide:nth-child(2) .hover-image { animation-delay: 2s; }
+        .Slide:nth-child(3) .hover-image { animation-delay: 4s; }
+        .Slide:nth-child(4) .hover-image { animation-delay: 6s; }
+        .Slide:nth-child(5) .hover-image { animation-delay: 8s; }
 
-.Slide:hover .hover-image {
-    opacity: 1;
-}
+        @keyframes slideFromTop {
+            0% { transform: translateY(-100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
 
-.Overlay_Scale_Container {
-    position: fixed;
-    left: 50%;
-    bottom: 50px;
-    transform: translateX(-50%);
-    transform-origin: center bottom;
-    width: 600px;
-    z-index: 10;
-}
+        @keyframes slideFromBottom {
+            0% { transform: translateY(100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
 
-.Overlay_Content {
-    position: relative;
-    text-align: center;
-}
+        @keyframes hoverEffect {
+            0%, 10% { opacity: 0; }
+            10%, 20% { opacity: 1; }
+            20%, 100% { opacity: 0; }
+        }
 
-.Form_Tagline {
-    font-family: 'ARCO', sans-serif;
-    color: #fff;
-    margin-bottom: 20px;
-}
+        /* Updated Overlay Styles */
+        .overlay-container {
+            position: fixed;
+            left: 50%;
+            top: 85%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 600px;
+            z-index: 10;
+            height: 100%;
+            text-align: center;
+        }
 
-.form_wrapper {
-    width: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    border-radius: 10px;
-}
+        .overlay-content {
+            background: rgba(0, 0, 0, 0.0);
+            padding: 20px;
+            border-radius: 10px;
+            padding-top: 80px;
+        }
 
-.form_row {
-    display: flex;
-    gap: 10px;
-}
+        .logo {
+            width: 200px;
+            margin: 10px auto;
+        }
 
-.FormField {
-    flex: 3;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-}
+        .tagline {
+            font-family: 'ARCO', sans-serif;
+            color: #fff;
+            margin: 0px;
+            font-size: 20px;
+        }
 
-.FormSubmitBtn {
-    background-color: #27605B;
-    color: white;
-    font-family: 'ARCO', sans-serif;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    border: 6px solid #2A8B73;
-}
+        .form-row {
+            display: flex;
+            flex-wrap: nowrap; /* Prevent wrapping */
+            justify-content: center; /* Center items horizontally */
+            align-items: center; /* Center items vertically */
+            gap: 10px; /* Spacing between elements */
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
 
-.FormSubmitBtn:hover {
-    background-color: #FF4B7D;
-    transform: translateY(-2px);
-    border: 6px solid #FF6699;
-}
-
-.FormSubmitBtn:active {
-    background-color: #C22F17;
-    transform: translateY(1px);
-    border: 6px solid #FF0000;
-}
-
-.Logo {
-    margin: 10px auto;
-}
-
-.LogoTagline {
-    font-family: 'ARCO', sans-serif;
-    color: #fff;
-    margin: 5px 0;
-}
-        
-.Overlay_Scale_Container {
-    position: fixed;
-    width: 600px;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    transform-origin: bottom center;
-    z-index: 10;
-    padding-bottom: 0px;
-}
-
-/* Media Queries for Responsive Scaling */
-@media screen and (min-width: 2560px) {
-    .Overlay_Content {
-        transform: scale(1);
-    }
-    .LogoTagline { font-size: 30px !important; }
-    .Logo { width: 400px; }
-    .FormField { font-size: 24px; padding: 20px; width: 400px; }
-    .FormSubmitBtn { font-size: 24px; padding: 20px 40px; }
-    .Form_Tagline { font-size: 32px !important; }
-}
-
-@media screen and (max-width: 2559px) {
-    .Overlay_Content {
-        transform: scale(1);
-        bottom: 200px;
-    }
-    .LogoTagline { font-size: 30px !important; }
-    .Logo { width: 350px; }
-    .FormField { font-size: 20px; padding: 18px; width: 350px; }
-    .FormSubmitBtn { font-size: 20px; padding: 18px 36px; }
-    .Form_Tagline { font-size: 28px !important; }
-}
-
-@media screen and (max-width: 1919px) {
-    .Overlay_Content {
-        transform: scale(0.8);
-        bottom: 200px;
-    }
-    .LogoTagline { font-size: 30px !important; }
-    .Logo { width: 300px; }
-    .FormField { font-size: 18px; padding: 15px; width: 300px; }
-    .FormSubmitBtn { font-size: 18px; padding: 15px 30px; }
-    .Form_Tagline { font-size: 24px !important; }
-}
-
-@media screen and (max-width: 1365px) {
-    .Overlay_Content {
-        transform: scale(0.6);
-        bottom: 0px;
-    }
-    .LogoTagline { font-size: 28px !important; }
-    .Logo { width: 250px; }
-    .FormField { font-size: 16px; padding: 12px; width: 250px; }
-    .FormSubmitBtn { font-size: 16px; padding: 12px 24px; }
-    .Form_Tagline { font-size: 20px !important; }
-    body {background-size: contain;}
-}
-
-@media screen and (max-width: 767px) {
-    .Overlay_Content {
-        transform: scale(0.42);
-        transform-origin: bottom center;
-        bottom: 0px;
-    }
-    .LogoTagline { font-size: 24px !important; }
-    .Logo { width: 200px; }
-    .FormField { font-size: 14px; padding: 10px; width: 200px; }
-    .FormSubmitBtn { font-size: 14px; padding: 10px 20px; }
-    .Form_Tagline { font-size: 18px !important; }
-    .Main_Wrapper {border: 3px #fff solid;}
-    body {background-size: contain;}
-
-}
-
-/* Animations */
-            
-@keyframes slideFromLeft {
-    0% { transform: translateX(-120%); opacity: 0; }
-    70% { transform: translateX(5%); opacity: 1; }
-    100% { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes slideFromRight {
-    0% { transform: translateX(120%); opacity: 0; }
-    70% { transform: translateX(-5%); opacity: 1; }
-    100% { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes slideFromTop {
-    0% { transform: translateY(-120%); opacity: 0; }
-    70% { transform: translateY(5%); opacity: 1; }
-    100% { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes slideFromBottom {
-    0% { transform: translateY(120%); opacity: 0; }
-    70% { transform: translateY(-5%); opacity: 1; }
-    100% { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes fadeInScale {
-    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-    70% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
-    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-}
-
-@keyframes logoAppear {
-    0% { opacity: 0; transform: scale(0.8); }
-    70% { opacity: 1; transform: scale(1.05); }
-    100% { opacity: 1; transform: scale(1); }
-}
-
-@keyframes taglineAppear {
-    0% { opacity: 0; transform: translateY(20px) scale(0.8); }
-    70% { opacity: 1; transform: translateY(-5px) scale(1.05); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
-}
-    
-.Slide img.default-image {
-    opacity: 1; /* Always visible */
-    position: absolute; /* Stacked below the hover image */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.Slide img.hover-image {
-    opacity: 0; /* Initially hidden */
-    position: absolute; /* Stacked over the default image */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    animation: hoverEffect 10s infinite;
-}
-
-@keyframes hoverEffect {
-    0%, 10% {
-        opacity: 0; /* Hidden */
-    }
-    10%, 20% {
-        opacity: 1; /* Fade in */
-    }
-    20%, 100% {
-        opacity: 0; /* Fade out */
-    }
-}
-
-/* Staggered Animations for Each Slide */
-.Slide:nth-child(1) img.hover-image {
-    animation-delay: 0s;
-}
-
-.Slide:nth-child(2) img.hover-image {
-    animation-delay: 2s;
-}
-
-.Slide:nth-child(3) img.hover-image {
-    animation-delay: 4s;
-}
-
-.Slide:nth-child(4) img.hover-image {
-    animation-delay: 6s;
-}
-
-.Slide:nth-child(5) img.hover-image {
-    animation-delay: 8s;
-}
-
-
-/* Animation Assignments */
-.Slide:nth-child(1) {
-    animation: slideFromLeft 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: 0.2s;
-}
-
-.Slide:nth-child(2) {
-    animation: slideFromBottom 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: 0.4s;
-}
-
-.Slide:nth-child(3) {
-    animation: slideFromTop 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: 0.6s;
-}
-
-.Slide:nth-child(4) {
-    animation: slideFromBottom 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: 0.8s;
-}
-
-.Slide:nth-child(5) {
-    animation: slideFromRight 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: 1s;
-}
-
-.LogoTagline[style*="font-size: 42px"] {
-    opacity: 0;
-    animation: taglineAppear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: 2s;
-}
-
-.Logo {
-    opacity: 0;
-    animation: logoAppear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1.5) forwards;
-    animation-delay: 2.2s;
-}
-
-.LogoTagline[style*="font-size: min(24px, 4vw)"] {
-    opacity: 0;
-    animation: taglineAppear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: 2.4s;
-}
-
-.form_row {
-    opacity: 0;
-    animation: taglineAppear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: 2.6s;
-}
-
-.Form_Tagline[style*="font-size: min(32px, 5vw)"] {
-    opacity: 0;
-    animation: taglineAppear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: 2.8s;
-}
-    </style>
-    <script>
-        // Fix for mobile viewport height
-        function setVH() {
-            let vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        .form-field {
+            flex: 1;
+            padding: 10px;
+            min-width: 200px; /* Prevent shrinking too much */
+            max-width: 300px; /* Ensure consistency across devices */
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
         }
         
-        window.addEventListener('load', setVH);
-        window.addEventListener('resize', setVH);
-    </script>
+        .submit-btn {
+            background: #27605B;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-family: 'ARCO', sans-serif;
+            cursor: pointer;
+            border: 6px solid #2A8B73;
+            flex-shrink: 0; /* Prevent shrinking */
+            min-width: 100px;
+            box-sizing: border-box;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .social-icon img {
+            border-radius: 5px; /* This adds rounded corners */
+        }
+        .social-icon:hover {
+            transform: scale(1.1); /* Scales the icon up by 10% on hover */
+        }
+        
+    </style>
 </head>
 <body>
     <div class="Main_Wrapper">
         <div class="Content_Wrapper">
             <div class="Row">
                 <div class="Slide">
-                    <img src="images/MM_DarkModeSite_0009_BTN_Defaul_1.png" alt="Slide 1" class="default-image">
-                    <img src="images/MM_DarkModeSite_0004_BTN_Hover_1.png" alt="Slide 1 Hover" class="hover-image">
+                    <img src="images_mobile/MM_DarkModeSite0009_BTN_Defaul1TALL.png" alt="Slide 1" class="default-image">
+                    <img src="images_mobile/MM_DarkModeSite0004_BTN_Hover1TALL.png" alt="Slide 1 Hover" class="hover-image">
                 </div>
                 <div class="Slide">
-                    <img src="images/MM_DarkModeSite_0008_BTN_Defaul_2.png" alt="Slide 2" class="default-image">
-                    <img src="images/MM_DarkModeSite_0003_BTN_Hover_2.png" alt="Slide 2 Hover" class="hover-image">
+                    <img src="images_mobile/MM_DarkModeSite0008_BTN_Defaul2TALL.png" alt="Slide 2" class="default-image">
+                    <img src="images_mobile/MM_DarkModeSite0003_BTN_Hover2TALL.png" alt="Slide 2 Hover" class="hover-image">
                 </div>
                 <div class="Slide">
-                    <img src="images/MM_DarkModeSite_0007_BTN_Defaul_3.png" alt="Slide 3" class="default-image">
-                    <img src="images/MM_DarkModeSite_0002_BTN_Hover_3.png" alt="Slide 3 Hover" class="hover-image">
+                    <img src="images_mobile/MM_DarkModeSite0007_BTN_Defaul3TALL.png" alt="Slide 3" class="default-image">
+                    <img src="images_mobile/MM_DarkModeSite0002_BTN_Hover3TALL.png" alt="Slide 3 Hover" class="hover-image">
                 </div>
                 <div class="Slide">
-                    <img src="images/MM_DarkModeSite_0006_BTN_Defaul_4.png" alt="Slide 4" class="default-image">
-                    <img src="images/MM_DarkModeSite_0001_BTN_Hover_4.png" alt="Slide 4 Hover" class="hover-image">
+                    <img src="images_mobile/MM_DarkModeSite0006_BTN_Defaul4TALL.png" alt="Slide 4" class="default-image">
+                    <img src="images_mobile/MM_DarkModeSite0001_BTN_Hover4TALL.png" alt="Slide 4 Hover" class="hover-image">
                 </div>
                 <div class="Slide">
-                    <img src="images/MM_DarkModeSite_0005_BTN_Defaul_5.png" alt="Slide 5" class="default-image">
-                    <img src="images/MM_DarkModeSite_0000_BTN_Hover_5.png" alt="Slide 5 Hover" class="hover-image">
+                    <img src="images_mobile/MM_DarkModeSite0005_BTN_Defaul5TALL.png" alt="Slide 5" class="default-image">
+                    <img src="images_mobile/MM_DarkModeSite0000_BTN_Hover5TALL.png" alt="Slide 5 Hover" class="hover-image">
                 </div>
             </div>
-            <div class="Overlay_Scale_Container">
-            <div class="Overlay_Content">
-                <div class="LogoTagline" style="font-size: 42px;">SOON...</div>
-                <img src="images/logo.png" alt="Logo" class="Logo">
-                <div class="LogoTagline" style="font-size: min(24px, 4vw);">STAY UPDATED <span style="color: #A0E765">FOR EARLY PERKS</span></div>
-                <form action="https://club.us22.list-manage.com/subscribe/post?u=fb5cdd927f154a50cc430809f&amp;id=082cc50bbd&amp;f_id=00c1c2e1f0"
+        </div>
+    </div>
+
+    <div class="overlay-container">
+        <div class="overlay-content">
+            <div class="tagline">SOON...</div>
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <div class="tagline">STAY UPDATED <br><span style="color: #A0E765">FOR EARLY PERKS</span></div>
+<form action="https://club.us22.list-manage.com/subscribe/post?u=fb5cdd927f154a50cc430809f&amp;id=082cc50bbd&amp;f_id=00c1c2e1f0"
       method="post"
       id="mc-embedded-subscribe-form"
       name="mc-embedded-subscribe-form"
-      class="form_row"
+      class="form-row"
       target="_blank"
       novalidate>
       
@@ -474,18 +244,30 @@ body::before {
     <input type="hidden" name="id" value="082cc50bbd">
     <input type="hidden" name="f_id" value="00c1c2e1f0">
     
-    <input type="email" class="FormField" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email" required>
+    <input type="email" class="form-field" name="EMAIL" id="mce-EMAIL" placeholder="Enter your email" required>
     
     <div aria-hidden="true" style="position: absolute; left: -5000px;">
         <input type="text" name="b_fb5cdd927f154a50cc430809f_082cc50bbd" tabindex="-1" value="">
     </div>
     
-    <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="FormSubmitBtn">Join</button>
+    <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="submit-btn">Join</button>
 </form>
-
-                
-                                <div class="Form_Tagline" style="font-size: min(32px, 5vw);">JOIN THE WAITLIST TODAY<br/> Share: MIXMONSTERS.CLUB</div>
-            </div></div>
+            <div class="tagline">JOIN THE WAITLIST!</div>
+            <div class="tagline" style="margin-top: 10px;">Share us:</div>
+            <div class="social-icons">
+                <a href="https://bsky.app/profile/mixmonsters.bsky.social" class="social-icon">
+                    <img src="images_mobile/BlueskyIco.png" alt="Social Icon 1">
+                </a>
+                <a href="https://www.instagram.com/mixmonstersclub/" class="social-icon">
+                    <img src="images_mobile/InstagramIco.png" alt="Social Icon 2">
+                </a>
+                <a href="https://www.facebook.com/MixMonstersClub" class="social-icon">
+                    <img src="images_mobile/FacebookIco.png" alt="Social Icon 3">
+                </a>
+                <a href="https://www.threads.net/@mixmonstersclub" class="social-icon">
+                    <img src="images_mobile/ThreadsIco.png" alt="Social Icon 4">
+                </a>
+            </div>
         </div>
     </div>
 <script>
@@ -542,21 +324,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
-    <script>
-    const updateScale = () => {
-    const scale = clamp(0.4, 
-        Math.min(window.innerWidth / 1920, window.innerHeight / 1080), 
-        1.1
-    );
-    document.documentElement.style.setProperty('--scale', scale);
-};
-
-window.addEventListener('resize', updateScale);
-updateScale();
-
-function clamp(min, value, max) {
-    return Math.min(Math.max(value, min), max);
-}
-    </script>
 </body>
 </html>
