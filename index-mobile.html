@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Mix Monsters Landing Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>Mix Monsters Landing Page</title> 
     <script>
     function isDesktop() {
         return !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) && 
@@ -139,7 +139,10 @@
 
         .form-row {
             display: flex;
-            gap: 10px;
+            flex-wrap: nowrap; /* Prevent wrapping */
+            justify-content: center; /* Center items horizontally */
+            align-items: center; /* Center items vertically */
+            gap: 10px; /* Spacing between elements */
             margin-top: 10px;
             margin-bottom: 10px;
         }
@@ -147,10 +150,13 @@
         .form-field {
             flex: 1;
             padding: 10px;
+            min-width: 200px; /* Prevent shrinking too much */
+            max-width: 300px; /* Ensure consistency across devices */
             border: none;
             border-radius: 5px;
+            box-sizing: border-box;
         }
-
+        
         .submit-btn {
             background: #27605B;
             color: white;
@@ -160,8 +166,12 @@
             font-family: 'ARCO', sans-serif;
             cursor: pointer;
             border: 6px solid #2A8B73;
+            flex-shrink: 0; /* Prevent shrinking */
+            min-width: 100px;
+            box-sizing: border-box;
+            margin: 0 auto; /* Center the button */
         }
-
+        
         .social-icons {
             display: flex;
             justify-content: center;
@@ -183,6 +193,7 @@
         .social-icon:hover {
             transform: scale(1.1); /* Scales the icon up by 10% on hover */
         }
+        
     </style>
 </head>
 <body>
