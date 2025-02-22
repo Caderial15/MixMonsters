@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Mix Monsters Landing Page</title> 
+    <style>
+        @font-face {
+            font-family: 'ARCO';
+            src: url('fonts/ARCO.ttf') format('truetype');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        font-weight: 100;
+        }
+/* General Paragraph Styling */
+p {
+    font-family: 'Poppins', sans-serif; /* Google Poppins font */
+    font-size: 16px; /* Adjust as needed */
+    color: white; /* White text */
+    line-height: 1.6; /* Improve readability */
+    font-weight: 400; /* Default weight */
+}
+
+/* General Headings Styling */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'ARCO', sans-serif; /* Uses your existing ARCO font */
+    color: white; /* White text */
+    text-transform: uppercase; /* Optional: Makes text uppercase */
+    margin-bottom: 10px; /* Adds spacing below each heading */
+}
+
+/* Specific Heading Sizes */
+h1 { font-size: 42px; }
+h2 { font-size: 36px; }
+h3 { font-size: 30px; }
+h4 { font-size: 24px; }
+h5 { font-size: 20px; }
+h6 { font-size: 18px; }
+
+html, body {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 1200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #000;
+    margin: 0 auto;
+    background-color: #1d0a25;
+}
+
+/* Fixed background layer */
+.Background_Wrapper {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    max-width: 1200px; /* Now matches Main_Wrapper */
+    height: 100%;
+    z-index: 1;
+    transform: translateX(-50%); /* Centers it */
+}
+
+.Background_Row {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.Background_Slide {
+    width: 20%;
+    height: 100%;
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+/* Individual background positions */
+.Background_Slide:nth-child(1) {
+    left: 0%;
+    background-image: url('images/MM_DarkModeSite0009_BTN_Repeat.png');
+}
+
+.Background_Slide:nth-child(2) {
+    left: 20%;
+    background-image: url('images/MM_DarkModeSite0008_BTN_Repeat.png');
+}
+
+.Background_Slide:nth-child(3) {
+    left: 40%;
+    background-image: url('images/MM_DarkModeSite0007_BTN_Repeat.png');
+}
+
+.Background_Slide:nth-child(4) {
+    left: 60%;
+    background-image: url('images/MM_DarkModeSite0006_BTN_Repeat.png');
+}
+
+.Background_Slide:nth-child(5) {
+    left: 80%;
+    background-image: url('images/MM_DarkModeSite0005_BTN_Repeat.png');
+}
+
+/* Scrolling content layer */
+.Main_Wrapper {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.Content_Wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.Row {
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.Slide {
+    width: 20%;
+    position: relative;
+    opacity: 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Updated Overlay Styles */
+.overlay-container {
+    position: relative;  /* Changed to relative to be part of normal flow */
+    width: 90%;
+    max-width: 600px;
+    margin: 65px auto;  /* Changed to auto margins for centering */
+    z-index: 10;
+    text-align: center;
+}
+    
+        /* Individual background for each slide */
+        .Slide:nth-child(1) {
+            background-image: url('images/MM_DarkModeSite0009_BTN_Repeat.png');
+        }
+
+        .Slide:nth-child(2) {
+            background-image: url('images/MM_DarkModeSite0008_BTN_Repeat.png');
+        }
+
+        .Slide:nth-child(3) {
+            background-image: url('images/MM_DarkModeSite0007_BTN_Repeat.png');
+        }
+
+        .Slide:nth-child(4) {
+            background-image: url('images/MM_DarkModeSite0006_BTN_Repeat.png');
+        }
+
+        .Slide:nth-child(5) {
+            background-image: url('images/MM_DarkModeSite0005_BTN_Repeat.png');
+        }        
+        
+        .Slide img {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .Slide .hover-image {
+            opacity: 0;
+            animation: hoverEffect 10s infinite;
+        }
+        
+         /* Styles for the container */
+        .image-container {
+            position: relative;
+            width: 80%; /* Adjust to your base image width */
+            margin: 0 auto; /* Adjust to your base image height */
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* Base image */
+        .base-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Head image positioned over the base */
+        .head-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Entry animations - alternating top/bottom */
+        .Slide:nth-child(1) { animation: slideFromTop 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+        .Slide:nth-child(2) { animation: slideFromBottom 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.2s; }
+        .Slide:nth-child(3) { animation: slideFromTop 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.4s; }
+        .Slide:nth-child(4) { animation: slideFromBottom 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.6s; }
+        .Slide:nth-child(5) { animation: slideFromTop 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards 0.8s; }
+
+        /* Staggered hover animations */
+        .Slide:nth-child(1) .hover-image { animation-delay: 0s; }
+        .Slide:nth-child(2) .hover-image { animation-delay: 2s; }
+        .Slide:nth-child(3) .hover-image { animation-delay: 4s; }
+        .Slide:nth-child(4) .hover-image { animation-delay: 6s; }
+        .Slide:nth-child(5) .hover-image { animation-delay: 8s; }
+
+        @keyframes slideFromTop {
+            0% { transform: translateY(-100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideFromBottom {
+            0% { transform: translateY(100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes hoverEffect {
+            0%, 10% { opacity: 0; }
+            10%, 20% { opacity: 1; }
+            20%, 100% { opacity: 0; }
+        }
+
+     
+
+        .overlay-content {
+            background: rgba(0, 0, 0, 0.0);
+            padding: 20px;
+            border-radius: 10px;
+            padding-top: 80px;
+        }
+
+        .logo {
+            width: 200px;
+            margin: 10px auto;
+        }
+
+        .tagline {
+            font-family: 'ARCO', sans-serif;
+            color: #fff;
+            margin: 0px;
+            font-size: 20px;
+        }
+
+ .form-row {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    gap: 0px; /* REMOVE the gap causing the issue */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.form-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 2px solid #a0e765;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.mc-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.submit-btn {
+    background: #27605B;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'ARCO', sans-serif;
+    cursor: pointer;
+    border: 4px solid #2A8B73;
+    width: 100%;
+}
+
+
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .social-icon img {
+            border-radius: 5px; /* This adds rounded corners */
+        }
+        .social-icon:hover {
+            transform: scale(1.1); /* Scales the icon up by 10% on hover */
+        }
+/* Mobile Portrait - Up to 400px */
+@media (max-width: 400px) {
+    .overlay-content {
+        padding-top: 80px !important;
+    }
+}
+
+/* Small Tablets & Large Phones - 401px to 600px */
+@media (min-width: 401px) and (max-width: 600px) {
+    .overlay-content {
+        padding-top: 120px !important;
+    }
+}
+
+/* 601px to 700px */
+@media (min-width: 601px) and (max-width: 700px) {
+    .overlay-content {
+        padding-top: 180px !important;
+    }
+}
+
+/* 701px to 800px */
+@media (min-width: 701px) and (max-width: 800px) {
+    .overlay-content {
+        padding-top: 200px !important;
+    }
+}
+
+/* 801px to 900px */
+@media (min-width: 801px) and (max-width: 900px) {
+    .overlay-content {
+        padding-top: 200px !important;
+    }
+}
+
+/* 901px to 1000px */
+@media (min-width: 901px) and (max-width: 1000px) {
+    .overlay-content {
+        padding-top: 250px !important;
+    }
+}
+
+/* 1001px to 1100px */
+@media (min-width: 1001px) and (max-width: 1100px) {
+    .overlay-content {
+        padding-top: 300px !important;
+    }
+}
+
+/* 1101px to 1200px */
+@media (min-width: 1101px) and (max-width: 1200px) {
+    .overlay-content {
+        padding-top: 340px !important;
+    }
+} 
+@media (min-width: 1200px) {
+    .overlay-content {
+        padding-top: 350px !important;
+    }
+} 
+        
+.centered-text-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Ensures text itself is centered */
+    width: 100%;
+    max-width: 800px; /* Adjust if needed */
+    margin: 0 auto; /* Centers within its parent */
+    padding: 40px 20px 40px 20px;
+}
+
+.centered-text-block h2 {
+    font-family: 'ARCO', sans-serif; /* Uses existing ARCO font */
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.centered-text-block p {
+    font-size: 18px;
+    max-width: 600px; /* Prevents text from stretching too wide */
+    line-height: 1.5;
+}
+.two-column-block {
+    display: flex;
+    align-items: center; /* Ensures vertical centering */
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px; /* Adjust width as needed */
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px; /* Adds space between the two columns */
+}
+
+.column {
+    flex: 1; /* Makes both columns take equal space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Ensures text is centered within its column */
+}
+
+/* Left Column - Image */
+.image-column img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 5px solid #3D7A60;
+}
+
+/* Right Column - Text */
+.text-column {
+    flex-direction: column;
+    max-width: 500px; /* Adjust to limit text width */
+}
+
+.text-column h2 {
+    font-family: 'ARCO', sans-serif;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.text-column p {
+    font-size: 18px;
+    max-width: 400px; /* Prevents overly wide text */
+    line-height: 1.5;
+}
+.centered-image-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    width: 100%; /* Container takes full width */
+    max-width: 600px; /* Adjust as needed */
+    height: auto; /* Adjust height dynamically */
+    margin: 0 auto; /* Center container itself */
+}
+
+.centered-image-container img {
+    max-width: 100%; /* Ensure image scales with container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Prevents cropping */
+}
+/* VIP Section Styles */
+.vip-section {
+    background: #1C4F3F; /* Dark green background */
+    border: 6px solid #3D7A60; /* Green border */
+    padding: 30px;
+    max-width: 600px;
+    margin: 40px auto;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* VIP Heading */
+.vip-section h2 {
+    font-family: 'ARCO', sans-serif;
+    font-size: 32px;
+    color: white;
+    margin-bottom: 15px;
+}
+/* Logo Styling */
+.vip-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.vip-logo-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Paragraph Styling */
+.vip-section p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* VIP Button */
+.vip-button {
+    width: 90%;
+    display: inline-block;
+    background: #F0C949; /* Gold Button */
+    color: white;
+    font-family: 'ARCO', sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 4px solid #D3A931; /* Gold Border */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Button Hover Effect */
+.vip-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 665px) {
+    .two-column-block {
+        flex-direction: column; /* Stack columns vertically */
+    }
+
+    .image-column {
+        order: -1; /* Move the image column to the top */
+    }
+
+    .text-column {
+        order: 1; /* Move the text column below */
+    }
+}
+.separator {
+    width: 50%;
+    height: 1px; /* Adjust thickness */
+    background-color: white;
+    margin: 0px auto; /* Adjust spacing above and below */
+}
+
+    </style>
+</head>
+<body>
+    <!-- Background Layer -->
+<div class="Background_Wrapper">
+    <div class="Background_Row">
+        <div class="Background_Slide background-1"></div>
+        <div class="Background_Slide background-2"></div>
+        <div class="Background_Slide background-3"></div>
+        <div class="Background_Slide background-4"></div>
+        <div class="Background_Slide background-5"></div>
+    </div>
+</div>
+    <div class="Main_Wrapper">
+        <div class="Content_Wrapper">
+            <div class="Row">
+                <div class="Slide">
+                    <img src="images/MM_DarkModeSite0009_BTN_Defaul1TALL.png" alt="Slide 1" class="default-image">
+                    <img src="images/MM_DarkModeSite0004_BTN_Hover1TALL.png" alt="Slide 1 Hover" class="hover-image">
+                </div>
+                <div class="Slide">
+                    <img src="images/MM_DarkModeSite0008_BTN_Defaul2TALL.png" alt="Slide 2" class="default-image">
+                    <img src="images/MM_DarkModeSite0003_BTN_Hover2TALL.png" alt="Slide 2 Hover" class="hover-image">
+                </div>
+                <div class="Slide">
+                    <img src="images/MM_DarkModeSite0007_BTN_Defaul3TALL.png" alt="Slide 3" class="default-image">
+                    <img src="images/MM_DarkModeSite0002_BTN_Hover3TALL.png" alt="Slide 3 Hover" class="hover-image">
+                </div>
+                <div class="Slide">
+                    <img src="images/MM_DarkModeSite0006_BTN_Defaul4TALL.png" alt="Slide 4" class="default-image">
+                    <img src="images/MM_DarkModeSite0001_BTN_Hover4TALL.png" alt="Slide 4 Hover" class="hover-image">
+                </div>
+                <div class="Slide">
+                    <img src="images/MM_DarkModeSite0005_BTN_Defaul5TALL.png" alt="Slide 5" class="default-image">
+                    <img src="images/MM_DarkModeSite0000_BTN_Hover5TALL.png" alt="Slide 5 Hover" class="hover-image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay-container">
+        <div class="overlay-content">
+            <div class="tagline">SOON...</div>
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <div class="tagline">STAY UPDATED <br><span style="color: #A0E765">FOR EARLY PERKS</span></div>
+<div class="form-container">
+    <form action="https://club.us22.list-manage.com/subscribe/post?u=fb5cdd927f154a50cc430809f&amp;id=082cc50bbd&amp;f_id=00c1c2e1f0"
+          method="post"
+          class="mc-form"
+          target="_blank"
+          novalidate>
+          
+        <input type="hidden" name="u" value="fb5cdd927f154a50cc430809f">
+        <input type="hidden" name="id" value="082cc50bbd">
+        <input type="hidden" name="f_id" value="00c1c2e1f0">
+
+        <input type="email" class="form-field" name="EMAIL" placeholder="Enter your email" required>
+        <button type="submit" class="submit-btn">Join</button>
+    </form>
+</div>
+            <div class="tagline">JOIN THE WAITLIST!</div>
+            <div class="tagline" style="margin-top: 10px;">Share us:</div>
+            <div class="social-icons">
+                <a href="https://bsky.app/profile/mixmonsters.bsky.social" class="social-icon">
+                    <img src="images/BlueskyIco.png" alt="Social Icon 1">
+                </a>
+                <a href="https://www.instagram.com/mixmonstersclub/" class="social-icon">
+                    <img src="images/InstagramIco.png" alt="Social Icon 2">
+                </a>
+                <a href="https://www.facebook.com/MixMonstersClub" class="social-icon">
+                    <img src="images/FacebookIco.png" alt="Social Icon 3">
+                </a>
+                <a href="https://www.threads.net/@mixmonstersclub" class="social-icon">
+                    <img src="images/ThreadsIco.png" alt="Social Icon 4">
+                </a>
+            </div>
+        </div>
+    <div class="image-container">
+        <img src="images/BookHeadPromoBase.png" alt="Base Image" class="base-image">
+        <img src="images/heads/head_0002.png" alt="Head Image" class="head-image" id="headImage">
+    </div>
+
+<div class="centered-text-block">
+    <h2>A Story Where Your Child <br/><span style="color: #a0e765;">Gets To Be The Hero!</span></h2>
+    <p>Every kid deserves to see themselves as the hero of their own adventure—and with the upcoming launch of Mix Monsters, your child will get to be the star as they embark on unforgettable adventures with a group of quirky, lovable new friends.</p>
+</div>
+        
+        <div class="centered-image-container">
+    <img src="images/MixMonstersParty.png" alt="Description">
+</div>
+
+
+<div class="two-column-block">
+    <div class="column image-column">
+        <img src="images/NatalieHarvey.jpg" alt="Description">
+    </div>
+
+    <div class="column text-column">
+        <h4>Handcrafted By<br/><span style="color: #a0e765;">Natalie Harvey!</span></h4>
+        <p>The Mix Monsters are 100% original artwork from artist and founder Natalie Harvey, and thanks to our first-of-it's-kind customization engine kids can be become the main character of exciting stories personalized just for them.</p>
+    </div>
+</div>
+        
+<div class="centered-text-block">
+    <h4>The official launch is right around the corner and we would love for you and your family to be a part of it!</h4>
+</div>
+        <div class="separator"></div>
+<div class="centered-text-block">
+    <h2>Join the club for free today and get exclusive early access and<br><span style="color: #a0e765;">pre-launch perks!</span></h2>
+</div>
+<div class="form-container">
+    <form action="https://club.us22.list-manage.com/subscribe/post?u=fb5cdd927f154a50cc430809f&amp;id=082cc50bbd&amp;f_id=00c1c2e1f0"
+          method="post"
+          class="mc-form"
+          target="_blank"
+          novalidate>
+
+        <input type="hidden" name="u" value="fb5cdd927f154a50cc430809f">
+        <input type="hidden" name="id" value="082cc50bbd">
+        <input type="hidden" name="f_id" value="00c1c2e1f0">
+
+        <input type="email" class="form-field" name="EMAIL" placeholder="Enter your email" required>
+        <button type="submit" class="submit-btn">Join</button>
+    </form>
+</div>
+        
+<div class="vip-section">
+    <h2>BECOME A <span style="color: #a0e765;">VIP!</span></h2>
+    <div class="vip-logo-container">
+        <img src="images/VIPLogo.png" alt="Mix Monsters VIP Logo">
+    </div>
+    <p>
+        To help make this dream a reality even faster, for a limited time you can join as a Pre-Launch VIP. 
+        For just <strong>$2.99</strong> you'll get 15% off our launch title alongside a ton of additional perks like 
+        behind-the-scenes content, sneak peeks, and the opportunity to test the character customizer before anyone else!
+    </p>
+    <a href="#" class="vip-button">CLAIM VIP NOW</a>
+</div>
+
+    <div class="column text-column" style="margin: 0 auto;">
+        <h4>They're the heroes of your life,<br/><span style="color: #a0e765;">why not our stories?</span></h4>
+        <p style="font-size: 12px;">©2025 Natalie Harvey Creative LLC</p>
+    </div>
+    
+</div>
+    
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.mc-form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            const formRow = this; // Target only the current form
+
+            // First, clear the form content
+            formRow.innerHTML = `
+                <div style="
+                    color: white;
+                    font-family: 'ARCO', sans-serif;
+                    font-size: 20px;
+                    text-align: center;
+                    width: 100%;
+                    background: black;
+                    padding: 10px;
+                ">
+                    PLEASE WAIT...
+                </div>
+            `;
+
+            const formData = new FormData(this);
+            fetch(this.action.replace('-json', ''), {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData
+            })
+            .then(() => {
+                setTimeout(() => {
+                    formRow.innerHTML = `
+                        <div style="
+                            color: white;
+                            font-family: 'ARCO', sans-serif;
+                            font-size: 20px;
+                            text-align: center;
+                            width: 100%;
+                        ">
+                            Thank you for Signing Up!<br>
+                            <span style="color: #A0E765">Follow us Everywhere: @MixMonsters</span>
+                        </div>
+                    `;
+                }, 1500);
+            })
+            .catch(() => {
+                formRow.innerHTML = form.innerHTML; // Restore the form
+                alert('There was an error with your submission. Please try again.');
+            });
+        });
+    });
+});
+</script>
+<script>
+        // Folder path for heads
+        const headsFolder = "images/heads/";
+
+        // Generate an array from head_0002.png to head_0060.png
+        let heads = [];
+        for (let i = 2; i <= 60; i++) {
+            let fileName = `head_${String(i).padStart(4, '0')}.png`; // Ensures "head_0002.png" format
+            heads.push(fileName);
+        }
+
+        let currentIndex = 0;
+
+        function cycleHeads() {
+            let headImage = document.getElementById("headImage");
+
+            // Set new head image
+            headImage.src = headsFolder + heads[currentIndex];
+
+            // Move to next head (loop back to start after last one)
+            currentIndex = (currentIndex + 1) % heads.length;
+
+            // Change head every 1 second (1000ms)
+            setTimeout(cycleHeads, 1000);
+        }
+
+        // Start cycling through heads immediately
+        cycleHeads();
+    </script>
+<script>
+window.addEventListener('scroll', () => {
+    const docHeight = Math.max(
+        document.body.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.clientHeight,
+        document.documentElement.scrollHeight,
+        document.documentElement.offsetHeight
+    );
+    document.querySelector('.Background_Wrapper').style.height = docHeight + 'px';
+});
+</script>
+</body>
+</html>
